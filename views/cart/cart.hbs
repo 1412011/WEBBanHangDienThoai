@@ -1,0 +1,168 @@
+
+{{#section 'title'}}
+	Giỏ hàng
+{{/section}}
+
+
+<div class="site-content-inner">
+    <div class="breadcrumb">
+        <div class="container">
+            <div class="breadcrumb-wrap">
+                <nav class="breadcrumb-trail breadcrumbs">
+                    <ul class="trail-items">
+                         <li class="trail-item trail-begin">
+                            <a href="index.html"><span>Trang chủ</span></a>
+                        </li>
+                        <li class="trail-item trail-begin">
+                            <a href="shop-grid.html"><span>Sản phẩm</span></a>
+                        </li>
+                        <li class="trail-item trail-begin">
+                            <a href="shop-detail-accessories.html"><span>Chi tiết</span></a>
+                        </li>
+                        <li class="trail-item trail-begin">
+                            <a href="shopping-cart.html"><span>Giỏ hàng</span></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="step-by-step">
+            <ul class="list-step">
+                <li class="items-step active"><span><p>GIỎ HÀNG</p></span></li>
+                <li class="items-step"><span><p>ĐỊA CHỈ</p></span></li>
+                <li class="items-step"><span><p>THANH TOÁN</p></span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="container">
+        <div class="product-cart shipping-process margin-bottom-20">
+            <table class="shop-table cart">
+                <thead>
+                    <tr>
+                        <th class="product-thumbnail">Hình ảnh</th>
+                        <th class="product-name">Tên sản phẩm</th>
+                        <th class="product-price">Giá</th>
+                        <th class="product-quantity">Số lượng</th>
+                        <th class="product-subtotal">Tổng</th>
+                        <th class="product-remove"><span class="remove none"><i class="fa fa-times"></i></span></th>
+                    </tr>
+                </thead>
+                <tbody id="list-item-cart">
+                    <tr class="cart-item">
+                        <td class="product-thumbnail" data-title="Image">
+                            <a href="#"><img class="thumb-item-cart" src="/images/imgs/ip-x-w-0.png" alt="img"/></a>
+                        </td>
+                        <td class="product-name" data-title="Product Name">
+                            <a href="#">Iphone X 256 GB</a>
+                        </td>
+                        <td class="product-price" data-title="Price">
+                            <span class="price">34 590 000</span>
+                        </td>
+                        <td class="product-quantity" data-title="Quantity">
+                            <div class="quantity">
+                                <a href="#" class="sign minus"><i class="fa fa-angle-left"></i></a>
+                                <input type="text" id="quantity-cart" value="1" title="Qty" class="input-text qty text" size="1">
+                                <a href="#" class="sign plus"><i class="fa fa-angle-right"></i></a>
+                            </div>
+                        </td> 
+                        <td class="product-subtotal" data-title="Total">
+                            <span class="price">34 590 000</span>
+                        </td>
+                        <td class="product-remove">
+                            <a href="javascript:;" class="remove-item-cart"><i class="fa fa-times"></i></a>
+                        </td>
+                    </tr>
+
+                    <tr class="cart-item">
+                        <td class="product-thumbnail" data-title="Image">
+                            <a href="#"><img class="thumb-item-cart" src="/images/imgs/ss-tab-a6-7in-0.png" alt="img"/></a>
+                        </td>
+                        <td class="product-name" data-title="Product Name">
+                            <a href="#">Máy tính bảng SamSung Tab A7 7in</a>
+                        </td>
+                        <td class="product-price" data-title="Price">
+                            <span class="price">5 590 000</span>
+                        </td>
+                        <td class="product-quantity" data-title="Quantity">
+                            <div class="quantity">
+                                <a href="#" class="sign minus"><i class="fa fa-angle-left"></i></a>
+                                <input type="text" id="quantity-cart" value="2" title="Qty" class="input-text qty text" size="1">
+                                <a href="#" class="sign plus"><i class="fa fa-angle-right"></i></a>
+                            </div>
+                        </td>
+                        <td class="product-subtotal" data-title="Total">
+                            <span class="price">11 180 000</span>
+                        </td>
+                        <td class="product-remove">
+                            <a href="javascript:;" class="remove-item-cart"><i class="fa fa-times"></i></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <a href="shop-grid.html" class="btn-check">TIẾP TỤC MUA HÀNG</a>
+            <!-- <a href="javascript:;" class="btn-check update">CẬP NHẬP</a> -->
+        </div>
+        <div class="shipping-checkout">
+            <div class="row">
+                <div class="col-sm-12 col-md-4">
+                    <div class="form-shipping">
+                        <h3 class="title"><i class="fa fa-truck"></i>Ước lượng phí vận chuyển</h3>
+                        <div class="box-select">
+                            <span class="shipping-label">Tỉnh / Thành phố</span>
+                            <select name="position">
+                                <option value="position1">TP Hồ Chí Minh</option>
+                                <option value="position2">Hà Nội</option>
+                                <option value="position3">Hải Phòng</option>
+                                <option value="position4">Cao Bằng</option>
+                                <option value="position5">Cà Mau</option>
+                                <option value="position6">Cần Thơ</option>
+                                <option value="position7">Đak Lak</option>
+                            </select>
+                        </div>
+
+                        <div class="box-select">
+                            <span class="shipping-label">Ước tính phí</span>
+                            <span class="price">34 000 đ</span>
+                        </div>
+                        <!-- <a href="#" class="btn-check process">GET A QUOCTE</a> -->
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-4">
+                    <div class="form-shipping">
+                        <h3 class="title"><i class="fa fa-ticket"></i>Mã giảm giá</h3>
+                        <p class="des">Nhập mã giảm giá coupons</p>
+                        <div class="form-input">
+                            <input type="text" class="input-form" id="name">
+                        </div>
+                        <a href="#" class="btn-check process">Xác Nhận</a>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-4">
+                    <div class="form-shipping order">
+                        <h3 class="title"><i class="fa fa-money"></i>Tổng tiền</h3>
+                        <div class="shipping-left">Giỏ hàng: <span class="price">45 770 000</span></div>
+                        <div class="shipping-left">Phí vận chuyển: <span class="price">0</span></div>
+                        <div class="shipping-left">Giảm giá: <span class="price">1 000 000</span></div>
+                        <div class="shipping-left">TỔNG TIỀN: <span class="price">44 770 000</span></div>
+                        <a href="checkout.html" class="btn-check process">&#10095;&#10095; Thông tin đơn hàng</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="brand-slide">
+            <div class="owl-carousel nav-style-1" data-nav="false" data-autoplay="false" data-dots="false" data-loop="true" data-margin="0" data-responsive='{"0":{"items":2},"480":{"items":3},"640":{"items":4},"991":{"items":6}}'>
+                <a href="#"><img src="/images/imgs/logo-apple.png" alt="brand"></a>
+                <a href="#"><img src="/images/imgs/logo-samsung.png" alt="brand"></a>
+                <a href="#"><img src="/images/imgs/logo-htc.png" alt="brand"></a>
+                <a href="#"><img src="/images/imgs/logo-sony.png" alt="brand"></a>
+                <a href="#"><img src="/images/imgs/logo-oppo.png" alt="brand"></a>
+                <a href="#"><img src="/images/imgs/logo-huawei.png" alt="brand"></a>
+                <a href="#"><img src="/images/imgs/logo-lenovo.png" alt="brand"></a>
+            </div>
+        </div>
+    </div> 
+</div>
