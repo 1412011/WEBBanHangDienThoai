@@ -1,0 +1,479 @@
+    
+
+{{#section 'title'}}
+    Lịch sử mua hàng
+{{/section}}
+
+
+    <div class="site-content-inner">
+        <div class="breadcrumb margin-bottom-50">
+            <div class="container">
+                <div class="breadcrumb-wrap">
+                    <nav class="breadcrumb-trail breadcrumbs">
+                        <ul class="trail-items">
+                            <li class="trail-item trail-begin">
+                                <a href="#"><span>Home</span></a>
+                            </li>
+                            <li class="trail-item trail-end">
+                                <span>Tài khoản</span>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        
+        <!--tesst-->
+        <div class="container">
+            <div class="tab">
+                <div class="avatar">
+                    <img class="image-avatar-user" src="/images/imgs/avatar-ronaldo.jpg">
+                    <a class="change-avatar" href="#">Thay ảnh đại diện</a>
+                    <p></p>
+                </div>
+                <button class="tablinks" onclick="openCity(event, 'profiles')" ><i class="fa fa-user" aria-hidden="true"></i>Hồ Sơ</button>
+                <button class="tablinks" onclick="openCity(event, 'orthers')" id="defaultOpen"><i class="fa fa-book" aria-hidden="true"></i>Đơn Hàng</button>
+            </div>
+
+            <div id="profiles" class="tabcontent">
+                <div class="profile">
+                    <div class="title-profile">
+                        <h4>Hồ Sơ Của Tôi</h4>
+                        <p>Quản lý thông tin hồ sơ để bảo mật tài khoản</p>
+                    </div>
+                    <div class="info-profile">
+                        <div class="row">
+                            <div class="col-lg-2 col-md-2 col-sm-12">
+                                <label>Email:</label>
+                            </div>
+                            <div class="col-lg-10 col-md-10 col-sm-12">
+                                 <label>nghanh.ittn@gmail.com</label>
+                                 <a class="change-profile" href="#">Thay đổi</a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-2 col-md-2 col-sm-12">
+                                <label>Số điện thoại:</label>
+                            </div>
+                            <div class="col-lg-10 col-md-10 col-sm-12">
+                                 <label>0981333497</label>
+                                 <a class="change-profile" href="#">Thay đổi</a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-2 col-md-2 col-sm-12">
+                                <label>Giới tính:</label>
+                            </div>
+                            <div class="col-lg-10 col-md-10 col-sm-12">
+                                <label class="radio-inline"><input type="radio" name="optradio" checked="checked">Nam</label>
+                                <label class="radio-inline"><input type="radio" name="optradio">Nữ</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-2 col-md-2 col-sm-12">
+                                <label>Ngày sinh:</label>
+                            </div>
+                            <div class="col-lg-10 col-md-10 col-sm-12">
+                                <div id="datepicker" class="input-group date" data-date-format="dd/mm/yyyy"> 
+                                    <input type="text" placeholder="dd/mm/yyyy" readonly="true"> <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span> 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-2 col-md-2 col-sm-12">
+                                <label>Mật khẩu:</label>
+                            </div>
+                            <div class="col-lg-10 col-md-10 col-sm-12">
+                                 <label>*****</label>
+                                 <a class="change-profile" href="#">Thay đổi</a>
+                            </div>
+                        </div>
+                        <div class="row btn-save">
+                            <a href="#" class="btn-check process"><i class="fa fa-check" aria-hidden="true"></i>Lưu thay đổi</a>
+                        </div>
+                    </div>
+                </div> <!-- end profile -->
+
+                <div class="address">
+                    <div class="title-profile">
+                        <h4>Địa chỉ</h4>
+                        <p>Quản lý địa chỉ giao hàng</p>
+                    </div>
+                    <div class="info-profile">
+                       <div class="row btn-save">
+                            <a href="javascript:;" class="btn-check process"><i class="fa fa-plus" aria-hidden="true"></i>Thêm địa chỉ mới</a>
+                        </div>
+                        <div class="add-new-address">
+                            <div class="form-group">
+                              <label for="addr">Địa chỉ mới:</label>
+                              <input type="text" class="form-control" id="addr" style="margin-bottom: 10px">
+                            </div>
+                            <button type="button" class="btn btn-success submit-add-address"><i class="fa fa-plus-circle" aria-hidden="true"></i> Thêm</button>
+                         
+                        </div>
+                        <div class="row">
+                            <table class="table-hover table-borderless">
+                                <tbody id='list-address-profile'>
+                                    <tr>
+                                        <td width="20%">Địa chỉ 1:</td>
+                                        <td>146 Phố Hàng Gà, Ba Đình, Đông Anh, Hà Nội</td>
+                                        <td><a href="javascript:;" class='remove-address'>xóa</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="20%">Địa chỉ 2:</td>
+                                        <td> 44B Lý Thường Kiệt, Hoàn Kiếm, Hà Nội</td>
+                                        <td><a href="javascript:;" class='remove-address'>xóa</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div><!--  end tabcontent -->
+
+            <div id="orthers" class="tabcontent">
+                <div class="bill-order">
+                    <div class="title-order">
+                        <div class="title-profile">
+                            <h4>Quản lý đơn hàng</h4>
+                        </div>
+                    </div>
+                    <div class="info-order">
+                        <div class="content-order">
+                            <div class="header-order">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-12">
+                                        <div class="">
+                                            <label>Mã đơn hàng:</label>
+                                            <a href="#">#1416500</a>
+                                            <p>Ngày đặt: 30/04/2018</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-12">
+                                        <div class="">
+                                            <p>Người nhận:</p>
+                                            <p>Nguyễn Hoàng Anh</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-12">
+                                        <div class="total-price-order">
+                                            <p>Tổng tiền:</p>
+                                            <a href="javascript:;">37.780.000 đ</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> <!-- end header order -->
+                            <div class="body-order">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-12">
+                                        <div class="left-order">
+                                            <a href="#">
+                                                <img class="thumb-img-order" src="/images/imgs/ss-s8-0.png" alt="image order">
+                                            </a>
+                                        </div>
+                                        <div class="right-order">
+                                            <a class="name-product-order" href="#">Điện thoại SamSung Galaxy S8 Black</a>
+                                            <label>Giá:</label>
+                                            <a href="javascript:;">18.890.000 đ</a>
+                                            <label>x</label>
+                                            <label>2</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-8 col-md-8 col-sm-12">
+                                        <div class="progress-order">
+                                            <div class="row"> 
+                                                <div class="col-md-2">
+                                                    <div class="step-progress active-pro">
+                                                        <div class="icon-step">
+                                                            <i class="fa fa-refresh" aria-hidden="true"></i>
+                                                            <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+                                                        </div>
+                                                        <p>Chờ xác nhận</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <div class="line-progress">
+                                                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="step-progress active-pro">
+                                                        <div class="icon-step">
+                                                            <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+                                                            <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+                                                        </div>
+                                                        <p>Đã duyệt</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <div class="line-progress">
+                                                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="step-progress">
+                                                        <div class="icon-step">
+                                                            <i class="fa fa-truck" aria-hidden="true"></i>
+                                                            <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+                                                        </div>
+                                                        <p>Đang vận chuyển</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <div class="line-progress">
+                                                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="step-progress">
+                                                        <div class="icon-step">
+                                                            <i class="fa fa-hand-pointer-o" aria-hidden="true"></i>
+                                                            <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+                                                        </div>
+                                                        <p>Đã nhận hàng</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="content-order">
+                            <div class="header-order">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-12">
+                                        <div class="">
+                                            <label>Mã đơn hàng:</label>
+                                            <a href="#">#2568500014</a>
+                                            <p>Ngày đặt: 30/04/2018</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-12">
+                                        <div class="">
+                                            <p>Người nhận:</p>
+                                            <p>Nguyễn Hoàng Anh</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-12">
+                                        <div class="total-price-order">
+                                            <p>Tổng tiền:</p>
+                                            <a href="javascript:;">47.180.000 đ</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> <!-- end header order -->
+                            <div class="body-order">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-12">
+                                        <div class="row item-product-his">
+                                            <div class="left-order">
+                                                <a href="#">
+                                                    <img class="thumb-img-order" src="/images/imgs/ip-8-64-0.png" alt="image order">
+                                                </a>
+                                            </div>
+                                            <div class="right-order">
+                                                <a class="name-product-order" href="#">Iphone 8 64Gb</a>
+                                                <label>Giá:</label>
+                                                <a href="javascript:;">15.090.000 đ</a>
+                                                <label>x</label>
+                                                <label>1</label>
+                                            </div>
+                                        </div>
+                                        <div class="row item-product-his">
+                                            <div class="left-order">
+                                                <a href="#">
+                                                    <img class="thumb-img-order" src="/images/imgs/ss-s8-0.png" alt="image order">
+                                                </a>
+                                            </div>
+                                            <div class="right-order">
+                                                <a class="name-product-order" href="#">SamSung S8 Plus 64Gb</a>
+                                                <label>Giá:</label>
+                                                <a href="javascript:;">22.090.000 đ</a>
+                                                <label>x</label>
+                                                <label>1</label>
+                                            </div>
+                                        </div>
+                                        <div class="row item-product-his">
+                                            <div class="left-order">
+                                                <a href="#">
+                                                    <img class="thumb-img-order" src="/images/imgs/oppo-f7-128-0.jpg" alt="image order">
+                                                </a>
+                                            </div>
+                                            <div class="right-order">
+                                                <a class="name-product-order" href="#">OPPO F7 128GB</a>
+                                                <label>Giá:</label>
+                                                <a href="javascript:;">10.090.000 đ</a>
+                                                <label>x</label>
+                                                <label>1</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-8 col-md-8 col-sm-12">
+                                        <div class="progress-order">
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <div class="step-progress active-pro">
+                                                        <div class="icon-step">
+                                                            <i class="fa fa-refresh" aria-hidden="true"></i>
+                                                            <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+                                                        </div>
+                                                        <p>Chờ xác nhận</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <div class="line-progress">
+                                                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="step-progress active-pro">
+                                                        <div class="icon-step">
+                                                            <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+                                                            <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+                                                        </div>
+                                                        <p>Đã duyệt</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <div class="line-progress">
+                                                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="step-progress active-pro">
+                                                        <div class="icon-step">
+                                                            <i class="fa fa-truck" aria-hidden="true"></i>
+                                                            <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+                                                        </div>
+                                                        <p>Đang vận chuyển</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <div class="line-progress active-pro">
+                                                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="step-progress active-pro">
+                                                        <div class="icon-step">
+                                                            <i class="fa fa-hand-pointer-o" aria-hidden="true"></i>
+                                                            <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+                                                        </div>
+                                                        <p>Đã nhận hàng</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="content-order">
+                            <div class="header-order">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-12">
+                                        <div class="">
+                                            <label>Mã đơn hàng:</label>
+                                            <a href="#">#1258452</a>
+                                            <p>Ngày đặt: 20/12/2014</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-12">
+                                        <div class="">
+                                            <p>Người nhận:</p>
+                                            <p>Nguyễn Hoàng Anh</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-12">
+                                        <div class="total-price-order">
+                                            <p>Tổng tiền:</p>
+                                            <a href="javascript:;">12.590.000 đ</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> <!-- end header order -->
+                            <div class="body-order">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-12">
+                                        <div class="left-order">
+                                            <a href="#">
+                                                <img class="thumb-img-order" src="/images/imgs/ss-s8-0.png" alt="image order">
+                                            </a>
+                                        </div>
+                                        <div class="right-order">
+                                            <a class="name-product-order" href="#">NOKIA 5 32GB</a>
+                                            <label>Giá:</label>
+                                            <a href="javascript:;">12.590.000 đ</a>
+                                            <label>x</label>
+                                            <label>1</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-8 col-md-8 col-sm-12">
+                                        <div class="progress-order">
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <div class="step-progress active-pro">
+                                                        <div class="icon-step">
+                                                            <i class="fa fa-refresh" aria-hidden="true"></i>
+                                                            <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+                                                        </div>
+                                                        <p>Chờ xác nhận</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <div class="line-progress">
+                                                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="step-progress active-pro">
+                                                        <div class="icon-step">
+                                                            <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+                                                            <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+                                                        </div>
+                                                        <p>Đã duyệt</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <div class="line-progress">
+                                                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="step-progress active-pro">
+                                                        <div class="icon-step">
+                                                            <i class="fa fa-truck" aria-hidden="true"></i>
+                                                            <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+                                                        </div>
+                                                        <p>Đang vận chuyển</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <div class="line-progress active-pro">
+                                                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="step-progress active-pro">
+                                                        <div class="icon-step">
+                                                            <i class="fa fa-hand-pointer-o" aria-hidden="true"></i>
+                                                            <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+                                                        </div>
+                                                        <p>Đã nhận hàng</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </diiv>
+        <!-- end tesst -->
+    </div>
