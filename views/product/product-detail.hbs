@@ -20,7 +20,7 @@
                         </li>
                     </ul>
                 </nav>
-            </div>
+            </div> 
         </div>
     </div>
     <div class="container left-sidebar">
@@ -213,113 +213,42 @@
                     <h4 class="title-widget">Sản phẩm cùng loại</h4>
                     <div class="owl-carousel nav-style-1" data-nav="true" data-autoplay="false" data-dots="false" data-loop="true" data-margin="0" data-responsive='{"0":{"items":1},"600":{"items":1},"1000":{"items":1}}'>
                         <ul class="recent-posts-list">
+                            {{#each loai}}
                             <li>
                                 <div class="thumb">
                                     <a href="#">
-                                        <img src="images/imgs/ip-6-32gb-0.png" class="thumbnail-shop" alt="">
+                                        <img src="{{duongDan}}" class="thumbnail-shop" alt="">
                                     </a>
                                 </div>
                                 <div class="info">
-                                    <span class="product-title">IPHONE 6 32GB</span>
+                                    <span class="product-title">{{tenSanPham}}</span>
                                     <span class="price">
-                                        <ins>12 490 000 đ</ins>
+                                        <ins>{{number_format gia}}</ins>
                                     </span>
                                     
                                      <div><button type="button" class="btn btn-primary add_to_cart">Mua ngay</button></div>
                                 </div>
                             </li>
-                            <li>
-                                <div class="thumb">
-                                    <a href="#">
-                                        <img src="images/imgs/ip-7-plus-128gb-0.png" class="thumbnail-shop" alt="">
-                                    </a>
-                                </div>
-                                <div class="info">
-                                    <span class="product-title">IPhone 7 Plus 128GB</span>
-                                    <span class="price">
-                                        <ins>22 390 000 đ</ins>
-                                    </span>
-                                    
-                                     <div><button type="button" class="btn btn-primary add_to_cart">Mua ngay</button></div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="thumb">
-                                    <a href="#">
-                                        <img src="images/imgs/ip-7-32gb-0.png" class="thumbnail-shop" alt="">
-                                    </a>
-                                </div>
-                                <div class="info">
-                                    <span class="product-title">Iphone 7 32GB</span>
-                                    <span class="price">
-                                        <ins>19 790 000 đ</ins>
-                                    </span>
-                                    
-                                     <div><button type="button" class="btn btn-primary add_to_cart">Mua ngay</button></div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="thumb">
-                                    <a href="#">
-                                        <img src="images/imgs/ip-8-64-0.png" class="thumbnail-shop" alt="">
-                                    </a>
-                                </div>
-                                <div class="info">
-                                    <span class="product-title">IPHONE 8 256GB RED</span>
-                                    <span class="price">
-                                        <ins>26 790 000 đ</ins>
-                                    </span>
-                                    
-                                     <div><button type="button" class="btn btn-primary add_to_cart">Mua ngay</button></div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="thumb">
-                                    <a href="#">
-                                        <img src="images/imgs/ip-5-16GB-0.jpg" class="thumbnail-shop" alt="">
-                                    </a>
-                                </div>
-                                <div class="info">
-                                    <span class="product-title">Iphone 5 16GB</span>
-                                    <span class="price">
-                                        <ins>5 890 000 đ</ins>
-                                    </span>
-                                    
-                                     <div><button type="button" class="btn btn-primary add_to_cart">Mua ngay</button></div>
-                                </div>
-                            </li>
+                            {{/each}}
                         </ul>
                         <ul class="recent-posts-list">
+                            {{#each loai2}}
                             <li>
                                 <div class="thumb">
                                     <a href="#">
-                                        <img src="images/imgs/ip-5s-16gb-0.png" class="thumbnail-shop" alt="">
+                                        <img src="{{duongDan}}" class="thumbnail-shop" alt="">
                                     </a>
                                 </div>
                                 <div class="info">
-                                    <span class="product-title">Iphone 5s 16GB</span>
+                                    <span class="product-title">{{tenSanPham}}</span>
                                     <span class="price">
-                                        <ins>7 999 000 đ</ins>
+                                        <ins>{{number_format gia}}</ins>
                                     </span>
                                     
                                      <div><button type="button" class="btn btn-primary add_to_cart">Mua ngay</button></div>
                                 </div>
                             </li>
-                            <li>
-                                <div class="thumb">
-                                    <a href="#">
-                                        <img src="images/imgs/ip-se-26-0.png" class="thumbnail-shop" alt="">
-                                    </a>
-                                </div>
-                                <div class="info">
-                                    <span class="product-title">Iphone SE 16GB</span>
-                                    <span class="price">
-                                        <ins>10 590 000 đ</ins>
-                                    </span>
-                                    
-                                     <div><button type="button" class="btn btn-primary add_to_cart">Mua ngay</button></div>
-                                </div>
-                            </li>
+                            {{/each}}
                         </ul>
                     </div>
                 </div>
@@ -329,12 +258,13 @@
         </div>
         <section id="section4" class="margin-bottom-80">
             <div class="title-head">
-                <h3 class="title-block">Latest Products</h3>
+                <h3 class="title-block">Sản phẩm cùng NSX</h3>
             </div>
             <div class="owl-carousel nav-style-1" data-nav="true" data-autoplay="false" data-dots="true" data-loop="true" data-margin="30" data-responsive='{"0":{"items":1},"400":{"items":2},"640":{"items":2},"768":{"items":2},"992":{"items":2},"1199":{"items":3},"1366":{"items":4},"1620":{"items":4}}'>
+                {{#each nsx}}
                 <div class="product-item">
                     <div class="product-top equal-elem">
-                        <span class="cat-list">APPLE</span>
+                        <span class="cat-list">{{tenNhaSanXuat}}</span>
                         <div class="star-rating">
                             <a href="#"><i class="fa fa-star-o"></i></a>
                             <a href="#"><i class="fa fa-star-o"></i></a>
@@ -343,12 +273,12 @@
                             <a href="#"><i class="fa fa-star-o"></i></a>
                             <span>(0)</span>
                         </div>
-                        <h3 class="product-name"><a href="#">IPhone X</a></h3>
+                        <h3 class="product-name"><a href="#">{{tenSanPham}}</a></h3>
                     </div>
                     <div class="product-media">
                         <figure>
                             <a href="#" >
-                                <img alt="img" class="thumb-item-product-imgs" src="images/imgs/ip-x-w-0.png">
+                                <img alt="img" class="thumb-item-product-imgs" src="{{duongDan}}">
                             </a>
                         </figure>
                         <a href="#" class="quick-view">Xem nhanh</a>
@@ -356,7 +286,7 @@
                     <div class="product-info">
                         <div class="product-content">
                             <span class="price">
-                                <ins>34 790 000 đ</ins>
+                                <ins>{{number_format gia}}</ins>
                                 <del></del>
                             </span>
                         </div>
@@ -369,221 +299,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-item">
-                    <div class="product-top equal-elem">
-                        <span class="cat-list">APPLE</span>
-                        <div class="star-rating">
-                            <a href="#"><i class="fa fa-star-o"></i></a>
-                            <a href="#"><i class="fa fa-star-o"></i></a>
-                            <a href="#"><i class="fa fa-star-o"></i></a>
-                            <a href="#"><i class="fa fa-star-o"></i></a>
-                            <a href="#"><i class="fa fa-star-o"></i></a>
-                            <span>(0)</span>
-                        </div>
-                        <h3 class="product-name"><a href="#">Máy tính bảng iPad Air 2 Cellular 128GB</a></h3>
-                    </div>
-                    <div class="product-media">
-                        <figure>
-                            <a href="#">
-                                <img alt="img" class="thumb-item-product-imgs" src="images/imgs/ipad-air-2-128-0.png">
-                            </a>
-                        </figure>
-                        <a href="#" class="quick-view">Xem nhanh</a>
-                    </div>
-                    <div class="product-info">
-                        <div class="product-content">
-                            <span class="price">15 490 000 đ</span>
-                            
-                        </div>
-                        <div class="group-btn-control">
-                            <div class="inner">
-                                <a href="#" class="compare button"><span class="arrow_left-right_alt"></span></a>
-                                <a href="#" class="add_to_cart">Thêm giỏ hàng</a>
-                                <a href="#" class="button add_to_wishlist"><span class="icon_heart_alt"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="product-item">
-                    <div class="product-top equal-elem">
-                        <span class="cat-list">APPLE</span>
-                        <div class="star-rating">
-                            <a href="#"><i class="fa fa-star-o"></i></a>
-                            <a href="#"><i class="fa fa-star-o"></i></a>
-                            <a href="#"><i class="fa fa-star-o"></i></a>
-                            <a href="#"><i class="fa fa-star-o"></i></a>
-                            <a href="#"><i class="fa fa-star-o"></i></a>
-                            <span>(0)</span>
-                        </div>
-                        <h3 class="product-name"><a href="#">Điện thoại iPhone 8 Plus 256GB</a></h3>
-                    </div>
-                    <div class="product-media">
-                        <figure>
-                            <a href="#">
-                                <img alt="img" class="thumb-item-product-imgs" src="images/imgs/ip-8-plus-256-0.png">
-                            </a>
-                        </figure>
-                        <div class="flash">
-                            <span class="onnew">new</span>
-                        </div>
-                        <a href="#" class="quick-view">Xem nhanh</a>
-                    </div>
-                    <div class="product-info">
-                        <div class="product-content">
-                            <span class="price">
-                                <ins>28 290 000 đ</ins>
-                                <del>28 790 000 đ</del>
-                            </span>
-                        </div>
-                        <div class="group-btn-control">
-                            <div class="inner">
-                                <a href="#" class="compare button"><span class="arrow_left-right_alt"></span></a>
-                                <a href="#" class="add_to_cart">Thêm giỏ hàng</a>
-                                <a href="#" class="button add_to_wishlist"><span class="icon_heart_alt"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="product-item">
-                    <div class="product-top equal-elem">
-                        <span class="cat-list">APPLE</span>
-                        <div class="star-rating">
-                            <a href="#"><i class="fa fa-star-o"></i></a>
-                            <a href="#"><i class="fa fa-star-o"></i></a>
-                            <a href="#"><i class="fa fa-star-o"></i></a>
-                            <a href="#"><i class="fa fa-star-o"></i></a>
-                            <a href="#"><i class="fa fa-star-o"></i></a>
-                            <span>(0)</span>
-                        </div>
-                        <h3 class="product-name"><a href="#">Máy tính bảng iPad Mini 4 Wifi 128GB</a></h3>
-                    </div>
-                    <div class="product-media">
-                        <figure>
-                            <a href="#">
-                                <img alt="img" class="thumb-item-product-imgs" src="images/imgs/ipad-mini-4-128-0.png">
-                            </a>
-                        </figure>
-                        <a href="#" class="quick-view">Xem nhanh</a>
-                    </div>
-                    <div class="product-info">
-                        <div class="product-content">
-                            <span class="price">10 990 000 đ</span>
-                            
-                        </div>
-                        <div class="group-btn-control">
-                            <div class="inner">
-                                <a href="#" class="compare button"><span class="arrow_left-right_alt"></span></a>
-                                <a href="#" class="add_to_cart">Thêm giỏ hàng</a>
-                                <a href="#" class="button add_to_wishlist"><span class="icon_heart_alt"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="product-item">
-                    <div class="product-top equal-elem">
-                        <span class="cat-list">APPLE</span>
-                        <div class="star-rating">
-                            <a href="#"><i class="fa fa-star-o"></i></a>
-                            <a href="#"><i class="fa fa-star-o"></i></a>
-                            <a href="#"><i class="fa fa-star-o"></i></a>
-                            <a href="#"><i class="fa fa-star-o"></i></a>
-                            <a href="#"><i class="fa fa-star-o"></i></a>
-                            <span>(0)</span>
-                        </div>
-                        <h3 class="product-name"><a href="#">Máy tính bảng iPad Pro 10.5 inch Wifi Cellular 64GB (2017)</a></h3>
-                    </div>
-                    <div class="product-media">
-                        <figure>
-                            <a href="#">
-                                <img alt="img" class="thumb-item-product-imgs" src="images/imgs/ipad-pro-2017-0.png">
-                            </a>
-                        </figure>
-                        <a href="#" class="quick-view">Xem nhanh</a>
-                    </div>
-                    <div class="product-info">
-                        <div class="product-content">
-                            <span class="price">19 990 000 đ</span>
-                            
-                        </div>
-                        <div class="group-btn-control">
-                            <div class="inner">
-                                <a href="#" class="compare button"><span class="arrow_left-right_alt"></span></a>
-                                <a href="#" class="add_to_cart">Thêm giỏ hàng</a>
-                                <a href="#" class="button add_to_wishlist"><span class="icon_heart_alt"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="product-item">
-                    <div class="product-top equal-elem">
-                        <span class="cat-list">APPLE</span>
-                        <div class="star-rating">
-                            <a href="#"><i class="fa fa-star-o"></i></a>
-                            <a href="#"><i class="fa fa-star-o"></i></a>
-                            <a href="#"><i class="fa fa-star-o"></i></a>
-                            <a href="#"><i class="fa fa-star-o"></i></a>
-                            <a href="#"><i class="fa fa-star-o"></i></a>
-                            <span>(0)</span>
-                        </div>
-                        <h3 class="product-name"><a href="#">Điện thoại Iphone SE 64GB</a></h3>
-                    </div>
-                    <div class="product-media">
-                        <figure>
-                            <a href="#">
-                                <img alt="img" class="thumb-item-product-imgs" src="images/imgs/ip-se-26-0.png">
-                            </a>
-                        </figure>
-                        <a href="#" class="quick-view">Xem nhanh</a>
-                    </div>
-                    <div class="product-info">
-                        <div class="product-content">
-                            <span class="price">10 990 000 đ</span>
-                            
-                        </div>
-                        <div class="group-btn-control">
-                            <div class="inner">
-                                <a href="#" class="compare button"><span class="arrow_left-right_alt"></span></a>
-                                <a href="#" class="add_to_cart">Thêm giỏ hàng</a>
-                                <a href="#" class="button add_to_wishlist"><span class="icon_heart_alt"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="product-item">
-                    <div class="product-top equal-elem">
-                        <span class="cat-list">APPLE</span>
-                        <div class="star-rating">
-                            <a href="#"><i class="fa fa-star-o"></i></a>
-                            <a href="#"><i class="fa fa-star-o"></i></a>
-                            <a href="#"><i class="fa fa-star-o"></i></a>
-                            <a href="#"><i class="fa fa-star-o"></i></a>
-                            <a href="#"><i class="fa fa-star-o"></i></a>
-                            <span>(0)</span>
-                        </div>
-                        <h3 class="product-name"><a href="#">Máy tính bảng iPad Wifi Cellular 32GB (2017)</a></h3>
-                    </div>
-                    <div class="product-media">
-                        <figure>
-                            <a href="#">
-                                <img alt="img" class="thumb-item-product-imgs" src="images/imgs/ipad-pro-2017-0.png">
-                            </a>
-                        </figure>
-                        <a href="#" class="quick-view">Xem nhanh</a>
-                    </div>
-                    <div class="product-info">
-                        <div class="product-content">
-                            <span class="price">12 990 000 đ</span>
-                            
-                        </div>
-                        <div class="group-btn-control">
-                            <div class="inner">
-                                <a href="#" class="compare button"><span class="arrow_left-right_alt"></span></a>
-                                <a href="#" class="add_to_cart">Thêm giỏ hàng</a>
-                                <a href="#" class="button add_to_wishlist"><span class="icon_heart_alt"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {{/each}}
                 <!-- end list -->
             </div>
         </section>

@@ -10,7 +10,7 @@ var homeController = require('./controllers/homeController'),
 	accountController = require('./controllers/accountController'),
 	productController = require('./controllers/productController'),
 	shopController = require('./controllers/shopController');
-
+ 
 var app = express();
 
 var sanphamRepo = require('./repos/sanphamRepo');
@@ -22,7 +22,8 @@ app.engine('hbs', exphbs({
         section: express_handlebars_sections(),
         number_format: n => {
             var nf = wnumb({
-                thousand: ','
+                thousand: ',',
+                suffix: ' đ'
             });
             return nf.to(n);
         }

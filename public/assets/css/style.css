@@ -858,6 +858,24 @@ th, td {
     -webkit-transform-style: unset;
     transform-style: unset;
 }
+
+.box-slider.opt-4 .item-slide{
+    
+    height: 530px;
+}
+.box-slider.opt-4 .item-slide.item-1{
+    background-image: url("/images/imgs/slider-samsungs9.png");
+}
+.box-slider.opt-4 .item-slide.item-2{
+    background-image: url("/images/imgs/slider-nokia8.jpg");
+}
+.box-slider.opt-4 .item-slide.item-3{
+    background-image: url("/images/imgs/slider-iphone-red.png");
+}
+.box-slider.opt-4 .item-slide.item-4{
+    background-image: url("/images/imgs/slider-sony.jpg");
+}
+
 .nav-style-1 .owl-prev,
 .nav-style-1 .owl-next{
     background: #f0f2f9;
@@ -7213,9 +7231,9 @@ blockquote span{
     color: #1467c1;
 }
 .box-slider.opt-3{
-    padding-left: 270px;
+    padding-left: 270px; 
 }
-.box-slider.opt-3 .item-slide{
+/*.box-slider.opt-3 .item-slide{
     background-image: url("/images/imgs/slider-samsungs9.png");
     height: 550px;
 }
@@ -7224,20 +7242,8 @@ blockquote span{
 }
 .box-slider.opt-3 .item-slide.item-3{
     background-image: url("/images/imgs/slider-nokia8.jpg");
-}
-.box-slider.opt-4 .item-slide{
-    background-image: url("/images/imgs/slider-samsungs9.png");
-    height: 530px;
-}
-.box-slider.opt-4 .item-slide.item-2{
-    background-image: url("/images/imgs/slider-nokia8.jpg");
-}
-.box-slider.opt-4 .item-slide.item-3{
-    background-image: url("/images/imgs/slider-iphone-red.png");
-}
-.box-slider.opt-4 .item-slide.item-4{
-    background-image: url("/images/imgs/slider-sony.jpg");
-}
+}*/
+
 .box-slider.opt-4 + .box-banner-slider{
     width: 280px;
     display: inline-block;

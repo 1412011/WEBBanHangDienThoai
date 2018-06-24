@@ -1,5 +1,7 @@
 var express = require('express');
 
+var sanphamRepo = require('../repos/sanphamRepo');
+
 var router = express.Router();
 
 router.get('/', (req, res) => {
@@ -7,6 +9,13 @@ router.get('/', (req, res) => {
 });
 
 router.get('/shopping', (req, res) => {
+
+	res.render('shop/shopping')
+});
+
+router.get('/dienthoai', (req, res) => {
+
+
 	res.render('shop/shopping')
 });
 
