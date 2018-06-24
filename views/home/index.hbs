@@ -278,9 +278,10 @@
                     <div id="tab-1" class="tab-panel active">
                         <div class="owl-carousel nav-style-1" data-nav="false" data-autoplay="false" data-dots="true" data-loop="true" data-margin="30" data-responsive='{"0":{"items":1},"480":{"items":2},"640":{"items":2},"768":{"items":3},"992":{"items":3},"1199":{"items":4},"1366":{"items":4},"1620":{"items":4}}'>
 
+                            {{#each spbestdt}}
                             <div class="product-item">
                                 <div class="product-top equal-elem">
-                                    <span class="cat-list">APPLE</span>
+                                    <span class="cat-list">{{tenNhaSanXuat}}</span>
                                     <div class="star-rating">
                                         <a href="#"><i class="fa fa-star"></i></a>
                                         <a href="#"><i class="fa fa-star"></i></a>
@@ -289,19 +290,19 @@
                                         <a href="#"><i class="fa fa-star"></i></a>
                                         <span>(5)</span>
                                     </div>
-                                    <h3 class="product-name"><a href="shop-detail-accessories.html">Apple IPHONE X 256GB</a></h3>
+                                    <h3 class="product-name"><a href="#">{{tenSanPham}}</a></h3>
                                 </div>
                                 <div class="product-media">
                                     <figure>
-                                        <a href="shop-detail-accessories.html">
-                                            <img alt="img" class="thumb-item-product-imgs" src="/images/imgs/ip-x-w-0.png">
+                                        <a href="/product/product-detail?id={{idSanPham}}">
+                                            <img alt="img" class="thumb-item-product-imgs" src="{{duongDan}}">
                                         </a>
                                     </figure>
                                     <a data-toggle="modal" href="#modal-quickview" class="quick-view">Xem nhanh</a>
                                 </div>
                                 <div class="product-info">
                                     <div class="product-content">
-                                        <span class="price">34.790.000 đ</span>
+                                        <span class="price">{{number_format gia}}</span>
                                         
                                     </div>
                                     <div class="group-btn-control">
@@ -313,288 +314,38 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="product-item">
-                                <div class="product-top equal-elem">
-                                    <span class="cat-list">SAMSUNG</span>
-                                    <div class="star-rating">
-                                        <a href="#"><i class="fa fa-star"></i></a>
-                                        <a href="#"><i class="fa fa-star"></i></a>
-                                        <a href="#"><i class="fa fa-star"></i></a>
-                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                        <span>(3)</span>
-                                    </div>
-                                    <h3 class="product-name"><a href="shop-detail-accessories.html">Điện thoại Samsung Galaxy S9+ 128GB</a></h3>
-                                </div>
-                                <div class="product-media">
-                                    <figure>
-                                        <a href="shop-detail-accessories.html">
-                                            <img alt="img" class="thumb-item-product-imgs" src="/images/imgs/ss-s9-plus-128-0.png">
-                                        </a>
-                                    </figure>
-                                    <a data-toggle="modal" href="#modal-quickview" class="quick-view">Xem nhanh</a>
-                                </div>
-                                <div class="product-info">
-                                    <div class="product-content">
-                                        <span class="price">24.990.000 đ</span>
-                                        
-                                    </div>
-                                    <div class="group-btn-control">
-                                        <div class="inner">
-                                            <a href="#" class="compare button"><span class="arrow_left-right_alt"></span></a>
-                                            <a href="javascript:;" class="add_to_cart">Thêm giỏ hàng</a>
-                                            <a href="#" class="button add_to_wishlist"><span class="icon_heart_alt"></span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="product-item">
-                                <div class="product-top equal-elem">
-                                    <span class="cat-list">SAMSUNG</span>
-                                    <div class="star-rating">
-                                        <a href="#"><i class="fa fa-star"></i></a>
-                                        <a href="#"><i class="fa fa-star"></i></a>
-                                        <a href="#"><i class="fa fa-star-half-o"></i></a>
-                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                        <span>(2.5)</span>
-                                    </div>
-                                    <h3 class="product-name"><a href="shop-detail-accessories.html">Điện thoại Samsung Galaxy Note 8</a></h3>
-                                </div>
-                                <div class="product-media">
-                                    <figure>
-                                        <a href="shop-detail-accessories.html">
-                                            <img alt="img" class="thumb-item-product-imgs" src="/images/imgs/ss-note-8-b-0.png">
-                                        </a>
-                                    </figure>
-                                    <a data-toggle="modal" href="#modal-quickview" class="quick-view">Xem nhanh</a>
-                                </div>
-                                <div class="product-info">
-                                    <div class="product-content">
-                                        <span class="price">22.490.000 đ</span>
-                                        
-                                    </div>
-                                    <div class="group-btn-control">
-                                        <div class="inner">
-                                            <a href="#" class="compare button"><span class="arrow_left-right_alt"></span></a>
-                                            <a href="javascript:;" class="add_to_cart">Thêm giỏ hàng</a>
-                                            <a href="#" class="button add_to_wishlist"><span class="icon_heart_alt"></span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="product-item">
-                                <div class="product-top equal-elem">
-                                    <span class="cat-list">OPPO</span>
-                                    <div class="star-rating">
-                                        <a href="#"><i class="fa fa-star"></i></a>
-                                        <a href="#"><i class="fa fa-star"></i></a>
-                                        <a href="#"><i class="fa fa-star"></i></a>
-                                        <a href="#"><i class="fa fa-star"></i></a>
-                                        <a href="#"><i class="fa fa-star"></i></a>
-                                        <span>(5)</span>
-                                    </div>
-                                    <h3 class="product-name"><a href="shop-detail-accessories.html">OPPO F7 128GB</a></h3>
-                                </div>
-                                <div class="product-media">
-                                    <figure>
-                                        <a href="shop-detail-accessories.html">
-                                            <img alt="img" class="thumb-item-product-imgs" src="/images/imgs/oppo-f7-128-0.jpg">
-                                        </a>
-                                    </figure>
-                                    <a data-toggle="modal" href="#modal-quickview" class="quick-view">Xem nhanh</a>
-                                </div>
-                                <div class="product-info">
-                                    <div class="product-content">
-                                        <span class="price">9.990.000 đ</span>
-                                        
-                                    </div>
-                                    <div class="group-btn-control">
-                                        <div class="inner">
-                                            <a href="#" class="compare button"><span class="arrow_left-right_alt"></span></a>
-                                            <a href="javascript:;" class="add_to_cart">Thêm giỏ hàng</a>
-                                            <a href="#" class="button add_to_wishlist"><span class="icon_heart_alt"></span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="product-item">
-                                <div class="product-top equal-elem">
-                                    <span class="cat-list">NOKIA</span>
-                                    <div class="star-rating">
-                                        <a href="#"><i class="fa fa-star"></i></a>
-                                        <a href="#"><i class="fa fa-star"></i></a>
-                                        <a href="#"><i class="fa fa-star"></i></a>
-                                        <a href="#"><i class="fa fa-star-half-o"></i></a>
-                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                        <span>(4.5)</span>
-                                    </div>
-                                    <h3 class="product-name"><a href="shop-detail-accessories.html">Điện thoại Nokia 8</a></h3>
-                                </div>
-                                <div class="product-media">
-                                    <figure>
-                                        <a href="shop-detail-accessories.html">
-                                            <img alt="img" class="thumb-item-product-imgs" src="/images/imgs/nokia-8-0.png">
-                                        </a>
-                                    </figure>
-                                    <a data-toggle="modal" href="#modal-quickview" class="quick-view">Xem nhanh</a>
-                                </div>
-                                <div class="product-info">
-                                    <div class="product-content">
-                                        <span class="price">12 990 000 đ</span>
-                                        
-                                    </div>
-                                    <div class="group-btn-control">
-                                        <div class="inner">
-                                            <a href="#" class="compare button"><span class="arrow_left-right_alt"></span></a>
-                                            <a href="javascript:;" class="add_to_cart">Thêm giỏ hàng</a>
-                                            <a href="#" class="button add_to_wishlist"><span class="icon_heart_alt"></span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="product-item">
-                                <div class="product-top equal-elem">
-                                    <span class="cat-list">NOKIA</span>
-                                    <div class="star-rating">
-                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                        <span>(0)</span>
-                                    </div>
-                                    <h3 class="product-name"><a href="shop-detail-accessories.html">NOKIA 7 PLUS</a></h3>
-                                </div>
-                                <div class="product-media">
-                                    <figure>
-                                        <a href="shop-detail-accessories.html">
-                                            <img alt="img" class="thumb-item-product-imgs" src="/images/imgs/nokia-7-plus.jpg">
-                                        </a>
-                                    </figure>
-                                    <a data-toggle="modal" href="#modal-quickview" class="quick-view">Xem nhanh</a>
-                                </div>
-                                <div class="product-info">
-                                    <div class="product-content">
-                                        <span class="price">9 990 000 đ</span>
-                                        
-                                    </div>
-                                    <div class="group-btn-control">
-                                        <div class="inner">
-                                            <a href="#" class="compare button"><span class="arrow_left-right_alt"></span></a>
-                                            <a href="javascript:;" class="add_to_cart">Thêm giỏ hàng</a>
-                                            <a href="#" class="button add_to_wishlist"><span class="icon_heart_alt"></span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="product-item">
-                                <div class="product-top equal-elem">
-                                    <span class="cat-list">HTC</span>
-                                    <div class="star-rating">
-                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                        <span>(0)</span>
-                                    </div>
-                                    <h3 class="product-name"><a href="shop-detail-accessories.html">Điện thoại HTC U Ultra</a></h3>
-                                </div>
-                                <div class="product-media">
-                                    <figure>
-                                        <a href="shop-detail-accessories.html">
-                                            <img alt="img" class="thumb-item-product-imgs" src="/images/imgs/htc-u-ultra-b-0.png">
-                                        </a>
-                                    </figure>
-                                    <a data-toggle="modal" href="#modal-quickview" class="quick-view">Xem nhanh</a>
-                                </div>
-                                <div class="product-info">
-                                    <div class="product-content">
-                                        <span class="price">11 990 000 đ</span>
-                                        
-                                    </div>
-                                    <div class="group-btn-control">
-                                        <div class="inner">
-                                            <a href="#" class="compare button"><span class="arrow_left-right_alt"></span></a>
-                                            <a href="javascript:;" class="add_to_cart">Thêm giỏ hàng</a>
-                                            <a href="#" class="button add_to_wishlist"><span class="icon_heart_alt"></span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="product-item">
-                                <div class="product-top equal-elem">
-                                    <span class="cat-list">SONY</span>
-                                    <div class="star-rating">
-                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                        <span>(0)</span>
-                                    </div>
-                                    <h3 class="product-name"><a href="shop-detail-accessories.html">Điện thoại Sony Xperia XZ Premium</a></h3>
-                                </div>
-                                <div class="product-media">
-                                    <figure>
-                                        <a href="shop-detail-accessories.html">
-                                            <img alt="img" class="thumb-item-product-imgs" src="/images/imgs/sony-xz-premium-0.png">
-                                        </a>
-                                    </figure>
-                                    <a data-toggle="modal" href="#modal-quickview" class="quick-view">Xem nhanh</a>
-                                </div>
-                                <div class="product-info">
-                                    <div class="product-content">
-                                        <span class="price">15 990 000 đ</span>
-                                        
-                                    </div>
-                                    <div class="group-btn-control">
-                                        <div class="inner">
-                                            <a href="#" class="compare button"><span class="arrow_left-right_alt"></span></a>
-                                            <a href="javascript:;" class="add_to_cart">Thêm giỏ hàng</a>
-                                            <a href="#" class="button add_to_wishlist"><span class="icon_heart_alt"></span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            {{/each}}
 
                         </div>
                     </div>
                     <div id="tab-2" class="tab-panel ">
                         <div class="owl-carousel nav-style-1" data-nav="false" data-autoplay="false" data-dots="true" data-loop="true" data-margin="30" data-responsive='{"0":{"items":1},"480":{"items":2},"640":{"items":2},"768":{"items":3},"992":{"items":3},"1199":{"items":4},"1366":{"items":4},"1620":{"items":4}}'>
 
+                            {{#each spbestmtb}}
                             <div class="product-item">
                                 <div class="product-top equal-elem">
-                                    <span class="cat-list">APPLE</span>
+                                    <span class="cat-list">{{tenNhaSanXuat}}</span>
                                     <div class="star-rating">
-                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                        <span>(0)</span>
+                                        <a href="#"><i class="fa fa-star"></i></a>
+                                        <a href="#"><i class="fa fa-star"></i></a>
+                                        <a href="#"><i class="fa fa-star"></i></a>
+                                        <a href="#"><i class="fa fa-star"></i></a>
+                                        <a href="#"><i class="fa fa-star"></i></a>
+                                        <span>(5)</span>
                                     </div>
-                                    <h3 class="product-name"><a href="shop-detail-accessories.html">Máy tính bảng iPad Pro 10.5 inch Wifi Cellular 64GB (2017)</a></h3>
+                                    <h3 class="product-name"><a href="#">{{tenSanPham}}</a></h3>
                                 </div>
                                 <div class="product-media">
                                     <figure>
-                                        <a href="shop-detail-accessories.html">
-                                            <img alt="img" class="thumb-item-product-imgs" src="/images/imgs/ipad-pro-2017-0.png">
+                                        <a href="/product/product-detail?id={{idSanPham}}">
+                                            <img alt="img" class="thumb-item-product-imgs" src="{{duongDan}}">
                                         </a>
                                     </figure>
                                     <a data-toggle="modal" href="#modal-quickview" class="quick-view">Xem nhanh</a>
                                 </div>
                                 <div class="product-info">
                                     <div class="product-content">
-                                        <span class="price">19 990 000 đ</span>
+                                        <span class="price">{{number_format gia}}</span>
                                         
                                     </div>
                                     <div class="group-btn-control">
@@ -606,186 +357,7 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="product-item">
-                                <div class="product-top equal-elem">
-                                    <span class="cat-list">SAMSUNG</span>
-                                    <div class="star-rating">
-                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                        <a href="#"><i class="fa fa-star"></i></a>
-                                        <a href="#"><i class="fa fa-star"></i></a>
-                                        <span>(3)</span>
-                                    </div>
-                                    <h3 class="product-name"><a href="shop-detail-accessories.html">Máy tính bảng Samsung Galaxy Tab A6 10.1 Spen</a></h3>
-                                </div>
-                                <div class="product-media">
-                                    <figure>
-                                        <a href="shop-detail-accessories.html">
-                                            <img alt="img" class="thumb-item-product-imgs" src="/images/imgs/ss-tab-a6-7in-0.png">
-                                        </a>
-                                    </figure>
-                                    <a data-toggle="modal" href="#modal-quickview" class="quick-view">Xem nhanh</a>
-                                </div>
-                                <div class="product-info">
-                                    <div class="product-content">
-                                        <span class="price">7 990 000 đ</span>
-                                        
-                                    </div>
-                                    <div class="group-btn-control">
-                                        <div class="inner">
-                                            <a href="#" class="compare button"><span class="arrow_left-right_alt"></span></a>
-                                            <a href="javascript:;" class="add_to_cart">Thêm giỏ hàng</a>
-                                            <a href="#" class="button add_to_wishlist"><span class="icon_heart_alt"></span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="product-item">
-                                <div class="product-top equal-elem">
-                                    <span class="cat-list">APPLE</span>
-                                    <div class="star-rating">
-                                        <a href="#"><i class="fa fa-star"></i></a>
-                                        <a href="#"><i class="fa fa-star"></i></a>
-                                        <a href="#"><i class="fa fa-star"></i></a>
-                                        <a href="#"><i class="fa fa-star"></i></a>
-                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                        <span>(4)</span>
-                                    </div>
-                                    <h3 class="product-name"><a href="shop-detail-accessories.html">Máy tính bảng iPad Air 2 Cellular 128GB</a></h3>
-                                </div>
-                                <div class="product-media">
-                                    <figure>
-                                        <a href="shop-detail-accessories.html">
-                                            <img alt="img" class="thumb-item-product-imgs" src="/images/imgs/ipad-air-2-128-0.png">
-                                        </a>
-                                    </figure>
-                                    <a data-toggle="modal" href="#modal-quickview" class="quick-view">Xem nhanh</a>
-                                </div>
-                                <div class="product-info">
-                                    <div class="product-content">
-                                        <span class="price">15 490 000 đ</span>
-                                        
-                                    </div>
-                                    <div class="group-btn-control">
-                                        <div class="inner">
-                                            <a href="#" class="compare button"><span class="arrow_left-right_alt"></span></a>
-                                            <a href="javascript:;" class="add_to_cart">Thêm giỏ hàng</a>
-                                            <a href="#" class="button add_to_wishlist"><span class="icon_heart_alt"></span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="product-item">
-                                <div class="product-top equal-elem">
-                                    <span class="cat-list">HUAWEI</span>
-                                    <div class="star-rating">
-                                        <a href="#"><i class="fa fa-star"></i></a>
-                                        <a href="#"><i class="fa fa-star"></i></a>
-                                        <a href="#"><i class="fa fa-star"></i></a>
-                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                        <span>(3)</span>
-                                    </div>
-                                    <h3 class="product-name"><a href="shop-detail-accessories.html">Máy tính bảng Huawei MediaPad M3 8.0 (2017)</a></h3>
-                                </div>
-                                <div class="product-media">
-                                    <figure>
-                                        <a href="shop-detail-accessories.html">
-                                            <img alt="img" class="thumb-item-product-imgs" src="/images/imgs/hw-pad-m3-8in-0.png">
-                                        </a>
-                                    </figure>
-                                    <a data-toggle="modal" href="#modal-quickview" class="quick-view">Xem nhanh</a>
-                                </div>
-                                <div class="product-info">
-                                    <div class="product-content">
-                                        <span class="price">5 990 000 đ</span>
-                                        
-                                    </div>
-                                    <div class="group-btn-control">
-                                        <div class="inner">
-                                            <a href="#" class="compare button"><span class="arrow_left-right_alt"></span></a>
-                                            <a href="javascript:;" class="add_to_cart">Thêm giỏ hàng</a>
-                                            <a href="#" class="button add_to_wishlist"><span class="icon_heart_alt"></span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="product-item">
-                                <div class="product-top equal-elem">
-                                    <span class="cat-list">LENOVO</span>
-                                    <div class="star-rating">
-                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                        <span>(0)</span>
-                                    </div>
-                                    <h3 class="product-name"><a href="shop-detail-accessories.html">Máy tính bảng Lenovo Phab 2</a></h3>
-                                </div>
-                                <div class="product-media">
-                                    <figure>
-                                        <a href="shop-detail-accessories.html">
-                                            <img alt="img" class="thumb-item-product-imgs" src="/images/imgs/lenovo-phab-2-0.png">
-                                        </a>
-                                    </figure>
-                                    <a data-toggle="modal" href="#modal-quickview" class="quick-view">Xem nhanh</a>
-                                </div>
-                                <div class="product-info">
-                                    <div class="product-content">
-                                        <span class="price">3 990 000 đ</span>
-                                        
-                                    </div>
-                                    <div class="group-btn-control">
-                                        <div class="inner">
-                                            <a href="#" class="compare button"><span class="arrow_left-right_alt"></span></a>
-                                            <a href="javascript:;" class="add_to_cart">Thêm giỏ hàng</a>
-                                            <a href="#" class="button add_to_wishlist"><span class="icon_heart_alt"></span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="product-item">
-                                <div class="product-top equal-elem">
-                                    <span class="cat-list">APPLE</span>
-                                    <div class="star-rating">
-                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                        <a href="#"><i class="fa fa-star-o"></i></a>
-                                        <span>(0)</span>
-                                    </div>
-                                    <h3 class="product-name"><a href="shop-detail-accessories.html">Máy tính bảng iPad Mini 4 Wifi 128GB</a></h3>
-                                </div>
-                                <div class="product-media">
-                                    <figure>
-                                        <a href="shop-detail-accessories.html">
-                                            <img alt="img" class="thumb-item-product-imgs" src="/images/imgs/ipad-mini-4-128-0.png">
-                                        </a>
-                                    </figure>
-                                    <a data-toggle="modal" href="#modal-quickview" class="quick-view">Xem nhanh</a>
-                                </div>
-                                <div class="product-info">
-                                    <div class="product-content">
-                                        <span class="price">10 990 000 đ</span>
-                                        
-                                    </div>
-                                    <div class="group-btn-control">
-                                        <div class="inner">
-                                            <a href="#" class="compare button"><span class="arrow_left-right_alt"></span></a>
-                                            <a href="javascript:;" class="add_to_cart">Thêm giỏ hàng</a>
-                                            <a href="#" class="button add_to_wishlist"><span class="icon_heart_alt"></span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            {{/each}}
 
                         </div>
                     </div>

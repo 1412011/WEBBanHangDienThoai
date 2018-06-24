@@ -13,10 +13,20 @@ router.get('/shopping', (req, res) => {
 	res.render('shop/shopping')
 });
 
-router.get('/dienthoai', (req, res) => {
+router.get('/:namecat', (req, res) => {
 
+	var namecat = req.params.namecat;
+	var id;
+	if(namecat === 'dien-thoai') id = 1;
+	else id = 2;
 
-	res.render('shop/shopping')
+	sanphamRepo.load_sp_theoloai(id).then(sps => {
+		var vm = {
+			sp: sps
+		};
+
+		res.render('shop/shopping', vm);
+	});
 });
 
 module.exports = router; 

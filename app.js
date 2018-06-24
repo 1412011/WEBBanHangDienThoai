@@ -11,6 +11,9 @@ var homeController = require('./controllers/homeController'),
 	productController = require('./controllers/productController'),
 	shopController = require('./controllers/shopController');
  
+var handle404MDW = require('./middle-wares/handle404'),
+    handleLayoutMDW = require('./middle-wares/handleLayout');
+
 var app = express();
 
 var sanphamRepo = require('./repos/sanphamRepo');
@@ -38,6 +41,8 @@ app.use(bodyParser.urlencoded({
     extended: false
 }));
 
+app.use(handleLayoutMDW);
+
 app.get('/', (req, res) => {
 	res.redirect('/home');
 });
@@ -47,6 +52,8 @@ app.use('/shop', shopController);
 app.use('/cart', cartController);
 app.use('/product', productController);
 app.use('/account', accountController);
+
+app.use(handle404MDW); 
 
 app.listen(3333, () => {
     console.log('Site running on port 3333');

@@ -10,16 +10,20 @@ router.get('/', (req, res) => {
 
 router.get('/index', (req, res) => {
 	
-	var p1 = sanphamRepo.load_12_Lasest();
-	var p2 = sanphamRepo.load_12_MostView();
-	var p3 = sanphamRepo.load_12_BestSeller();
+	var p1 = sanphamRepo.load_sp_Lasest();
+	var p2 = sanphamRepo.load_sp_MostView();
+	var p3 = sanphamRepo.load_sp_BestSeller();
+	var p4 = sanphamRepo.load_sp_sieupham_dt();
+	var p5 = sanphamRepo.load_sp_sieupham_mtb();
 
-	Promise.all([p1,p2,p3]).then(([lrows, vrows, srows]) => {
+	Promise.all([p1,p2,p3,p4,p5]).then(([lrows, vrows, srows, bdt, bmtb]) => {
 
 		var vm = {
 			splast: lrows,
 			spview: vrows,
-			spsell: srows
+			spsell: srows,
+			spbestdt: bdt,
+			spbestmtb: bmtb
 		};
 
 		res.render('home/index', vm);
