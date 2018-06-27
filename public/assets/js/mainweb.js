@@ -251,21 +251,28 @@ $('document').ready(function(){
                   dataType : 'json',
                   data: JSON.stringify(user),
                   success: function(user){
-                    var div = `
-                        <div class="dropdown">
-                          <a class="btn btn-primary dropdown-toggle" href="#" role="button" data-toggle="dropdown">${user.tenNguoiDung}
-                          <span class="caret"></span></a>
-                          <ul class="dropdown-menu">
-                              <li><a href="/account/profile">Hồ Sơ</a></li>
-                              <li><a href="/account/order-history">Đơn Hàng</a></li>
-                              <li><a href="javascript:;" id="logout-user">Đăng xuất</a></li>
-                          </ul>
-                        </div>
-                    `;
-                    $('.box-items-right').append(div);
-                    $('.box-items-right .login-register').remove();
-                    $('#close-modal-login').click();
-                    swal("Đăng nhập tài khoản thành công", "Bạn đã đăng nhập", "success");
+                    console.log(user);
+                    if(user.idNguoiDung > 0){
+                          var div = `
+                            <div class="dropdown">
+                              <a class="btn btn-primary dropdown-toggle" href="#" role="button" data-toggle="dropdown">${user.tenNguoiDung}
+                              <span class="caret"></span></a>
+                              <ul class="dropdown-menu">
+                                  <li><a href="/account/profile">Hồ Sơ</a></li>
+                                  <li><a href="/account/order-history">Đơn Hàng</a></li>
+                                  <li><a href="javascript:;" id="logout-user">Đăng xuất</a></li>
+                              </ul>
+                            </div>
+                        `;
+                        $('.box-items-right').append(div);
+                        $('.box-items-right .login-register').remove();
+                        $('#close-modal-login').click();
+                        swal("Đăng nhập tài khoản thành công", "Bạn đã đăng nhập", "success");
+                      }else{
+                              $('#error-login').text('Tài khoản hoặc mật khẩu không chính xác.');
+                              $('#error-login').removeClass('hide-div');
+                      }
+                    
                   },
                   error: function(e){
                       console.log('ERROR: ' + e);
@@ -305,7 +312,7 @@ $('document').ready(function(){
         var user = {
           id: id
         }
-        console.log(user);
+
         $.ajax({
                   type: 'POST',
                   url: '/product/quickview',
@@ -313,7 +320,7 @@ $('document').ready(function(){
                   dataType : 'json',
                   data: JSON.stringify(user),
                   success: function(user){
-                    console.log(user);
+
                       $('.preview-image-product').attr('src',user.duongDan);
                       $('.view-more').text(user.tenNhaSanXuat);
                       $('.product-title').text(user.tenSanPham);
@@ -437,7 +444,7 @@ $('document').ready(function(){
             return;
         }
         if(!isEmail(email)){
-           errorShow('Email không chính xác (vd: @gmail, @yahoo ...)');
+           errorShowlogin('Email không chính xác (vd: @gmail, @yahoo ...)');
            $('#email-login').focus();
            return;
         }

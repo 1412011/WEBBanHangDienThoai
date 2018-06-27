@@ -2,7 +2,7 @@ var db = require('../fn/db');
 var config = require('../config/config');
 
 exports.loadAll = () => {
-		var sql = `select sp.idSanPham, tenSanPham, gia, giaGiam, danhGia ,tenNhaSanXuat, duongDan
+		var sql = `select sp.idSanPham, tenSanPham, gia, giaGiam, danhGia ,tenNhaSanXuat, duongDan, sp.idNhaSanXuat
 			from sanpham sp, nhasanxuat nsx, hinhanh ha
     		where sp.idNhaSanXuat=nsx.idNhaSanXuat and ha.idSanPham=sp.idSanPham and ha.loaiHinhAnh=0 
     		ORDER BY RAND()`;

@@ -31,7 +31,7 @@
                 <div id="main" class="site-main">
                     <div class="product-single margin-bottom-30">
                         <div class="product-single-media thumb-horizontal">
-                            <a data-toggle="modal" href="#modal-preview" href="#" class="e-zoom"><i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                            <a data-toggle="modal" href="javascript:;" class="e-zoom"><i class="fa fa-search-plus" aria-hidden="true"></i></a>
                             <div class="slider slider-for">
                                 {{#each ha}}
                                 <img class="preview-image-product" src="{{duongDan}}" alt="img">
@@ -96,7 +96,7 @@
                                         <div class="close-modal-x">
                                             <a data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times" aria-hidden="true"></i></span></a>
                                         </div>
-                                         <img class="modal-image-product" src="images/imgs/ip-x-w-0.png" alt="img">
+                                         <img class="modal-image-product" src="/images/imgs/ip-x-w-0.png" alt="img">
                                         
                                     </div>
                                   
@@ -216,7 +216,7 @@
                             {{#each loai}}
                             <li>
                                 <div class="thumb">
-                                    <a href="#">
+                                    <a href="/product/product-detail?id={{idSanPham}}">
                                         <img src="{{duongDan}}" class="thumbnail-shop" alt="">
                                     </a>
                                 </div>
@@ -277,11 +277,11 @@
                     </div>
                     <div class="product-media">
                         <figure>
-                            <a href="#" >
+                            <a href="/product/product-detail?id={{idSanPham}}" >
                                 <img alt="img" class="thumb-item-product-imgs" src="{{duongDan}}">
                             </a>
                         </figure>
-                        <a href="#" class="quick-view">Xem nhanh</a>
+                       <a href="javascript:;" class="quick-view" data-id={{idSanPham}}>Xem nhanh</a>
                     </div>
                     <div class="product-info">
                         <div class="product-content">

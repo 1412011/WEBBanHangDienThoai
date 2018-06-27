@@ -37,6 +37,7 @@ router.post('/login', (req, res) => {
 	nguoidungRepo.login(user).then(rows => {
 
 		if (rows.length > 0) {
+
             req.session.isLogged = true;
             req.session.user = rows[0];
             req.session.cart = [];
@@ -45,7 +46,10 @@ router.post('/login', (req, res) => {
         }
         else
         {
-        	res.send(null);
+        	var user={
+        		idNguoiDung : 0
+        	}
+        	res.send(user);
         }
 	});
 
