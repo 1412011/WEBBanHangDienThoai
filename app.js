@@ -5,6 +5,9 @@ var path = require('path');
 var bodyParser = require('body-parser');
 var wnumb = require('wnumb');
 
+var session = require('express-session');
+var MySQLStore = require('express-mysql-session')(session);
+
 var homeController = require('./controllers/homeController'),
 	cartController = require('./controllers/cartController'),
 	accountController = require('./controllers/accountController'),
@@ -39,6 +42,33 @@ app.use(express.static(path.resolve(__dirname, 'public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false
+}));
+ 
+// session
+
+var sessionStore = new MySQLStore({
+    host: 'localhost',
+    port: 3306,
+    user: 'root',
+    password: 'root',
+    database: 'quanlybanhang',
+    createDatabaseTable: true,
+    schema: {
+        tableName: 'sessions',
+        columnNames: {
+            session_id: 'session_id',
+            expires: 'expires',
+            data: 'data'
+        }
+    }
+});
+
+app.use(session({
+    key: 'session_cookie_name',
+    secret: 'session_cookie_secret',
+    store: sessionStore,
+    resave: false,
+    saveUninitialized: false
 }));
 
 app.use(handleLayoutMDW);

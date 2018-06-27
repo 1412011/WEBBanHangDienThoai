@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/index', (req, res) => {
-	
+
 	var p1 = sanphamRepo.load_sp_Lasest();
 	var p2 = sanphamRepo.load_sp_MostView();
 	var p3 = sanphamRepo.load_sp_BestSeller();
@@ -26,9 +26,15 @@ router.get('/index', (req, res) => {
 			spbestmtb: bmtb
 		};
 
+		var reUrl = req.query.retUrl;
+		if(reUrl){
+			vm.openModal = true;
+		}
+		
 		res.render('home/index', vm);
 	});
 });
+
 
 router.get('/about', (req, res) => {
 	res.render('home/about');

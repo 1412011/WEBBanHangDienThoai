@@ -1,0 +1,35 @@
+{{#section 'title'}}
+    Đăng nhập
+{{/section}}
+
+<div class = "row-login center">
+    <h3 class="header-title-modal">Đăng nhập SmartMarket</h3>
+    <!-- <div class="alert alert-danger">
+        <strong>Đăng nhập thất bại:</strong> email hoặc mật khẩu không chính xác !!
+    </div> -->
+    <div class="alert alert-danger hide-div" id="error-login">
+    </div>
+    <div class="form-login-input">
+        <form action="" method="POST" role="form">
+            <div class="form-input">
+                <input type="text" class="form-control" id="email-login" name='email' value="" placeholder="Email">
+            </div>
+            <div class="form-input">
+                <input type="password" class="form-control" id="pwd-login" name='pwd' value="" placeholder="Mật khẩu">
+            </div>
+            <div class="checkbox cb-dieukhoan">
+                <label><input type="checkbox" value="">Ghi nhớ</label>
+            </div>
+            <p class="form-submit">
+                <button type="submit" class="btn btn-default submit-login">Login</button>
+            </p>
+
+            <div class="fg-pass">
+                <a class="register" data-dismiss="modal" data-toggle="modal" href="#modal-register">Đăng ký tài khoản mới</a>
+            </div>
+            <div class="fg-pass">
+                <a class="forget-password" href="#modal-foget-pass" data-dismiss="modal" data-toggle="modal">Quên mật khẩu</a>
+            </div>
+        </form>
+    </div>           
+</div>

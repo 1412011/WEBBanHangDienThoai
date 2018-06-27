@@ -2,7 +2,19 @@ var db = require('../fn/db');
 var config = require('../config/config');
 
 exports.loadAll = () => {
-	var sql = 'select * from sanpham';
+		var sql = `select sp.idSanPham, tenSanPham, gia, giaGiam, danhGia ,tenNhaSanXuat, duongDan
+			from sanpham sp, nhasanxuat nsx, hinhanh ha
+    		where sp.idNhaSanXuat=nsx.idNhaSanXuat and ha.idSanPham=sp.idSanPham and ha.loaiHinhAnh=0 
+    		ORDER BY RAND()`;
+	return db.load(sql);
+}
+
+exports.load_sp_theoloai_nsx = (idloai, idnsx) => {
+	var sql = `select sp.idSanPham, tenSanPham, gia, giaGiam, danhGia ,tenNhaSanXuat, duongDan
+			from sanpham sp, nhasanxuat nsx, hinhanh ha
+    		where sp.idLoaiSanPham = ${idloai} and sp.idNhaSanXuat = ${idnsx}
+    		and sp.idNhaSanXuat=nsx.idNhaSanXuat and ha.idSanPham=sp.idSanPham and ha.loaiHinhAnh=0 
+    		ORDER BY RAND()`;
 	return db.load(sql);
 }
 
@@ -10,7 +22,8 @@ exports.load_sp_theoloai = (idloai) => {
 	var sql = `select sp.idSanPham, tenSanPham, gia, giaGiam, danhGia ,tenNhaSanXuat, duongDan
 			from sanpham sp, nhasanxuat nsx, hinhanh ha
     		where sp.idLoaiSanPham = ${idloai}
-    		and sp.idNhaSanXuat=nsx.idNhaSanXuat and ha.idSanPham=sp.idSanPham and ha.loaiHinhAnh=0`;
+    		and sp.idNhaSanXuat=nsx.idNhaSanXuat and ha.idSanPham=sp.idSanPham and ha.loaiHinhAnh=0
+    		ORDER BY RAND()`;
 	return db.load(sql);
 }
 
@@ -18,7 +31,7 @@ exports.load_cungloai = (s, limit, offset) => {
 	var sql = `select sp.idSanPham, tenSanPham, gia, giaGiam, danhGia, duongDan 
 				from sanpham sp, hinhanh ha, loaisanpham l
 				where l.idLoaiSanPham = sp.idLoaiSanPham and ${s.idLoaiSanPham} = l.idLoaiSanPham and ha.idSanPham=sp.idSanPham and ha.loaiHinhAnh=0
-				LIMIT ${limit} OFFSET ${offset}`;
+				ORDER BY RAND() LIMIT ${limit} OFFSET ${offset}`;
 	return db.load(sql);
 }
 
@@ -26,7 +39,7 @@ exports.load_cungnsx = (s, limit, offset) => {
 	var sql = `select sp.idSanPham, tenSanPham, gia, giaGiam, danhGia ,tenNhaSanXuat, duongDan 
 				from sanpham sp, nhasanxuat nsx, hinhanh ha
 				where sp.idNhaSanXuat = nsx.idNhaSanXuat and ${s.idNhaSanXuat} = nsx.idNhaSanXuat and ha.idSanPham=sp.idSanPham and ha.loaiHinhAnh=0
-				LIMIT ${limit} OFFSET ${offset}`;
+				ORDER BY RAND() LIMIT ${limit} OFFSET ${offset}`;
 	return db.load(sql);
 }
 

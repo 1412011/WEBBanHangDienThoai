@@ -1,5 +1,5 @@
 
-$('document').ready(function(){
+$('document').ready(function(){ 
 
   $('a.add_to_cart').on('click',function(){
 
@@ -168,23 +168,20 @@ $('document').ready(function(){
     todayHighlight: true 
     }).datepicker('update', new Date());
 
-    $('button.submit-login').on('click',function(){
-        var user = $('.form-login-input form :text').val();
-        var pass = $('.form-login-input form :password').val();
+    // $('button.submit-login').on('click',function(){
+    //     var user = $('.form-login-input form :text').val();
+    //     var pass = $('.form-login-input form :password').val();
 
-        console.log(user);
-        console.log(pass);
-
-        if(user === 'user1' && pass === '123'){  
-          $('.box-items-right .dropdown').toggleClass('hide-div');
-          $('.box-items-right .login-register').toggleClass('hide-div');
-          $('button.submit-login').attr('data-dismiss','modal');
-        }else if(user === 'admin' && pass === '123'){
-          window.location.href='./pages/admin-order.html';
-        }else{
-          $('button.submit-login').removeAttr('data-dismiss');
-        }
-    });
+    //     if(user === 'user1' && pass === '123'){  
+    //       $('.box-items-right .dropdown').toggleClass('hide-div');
+    //       $('.box-items-right .login-register').toggleClass('hide-div');
+    //       $('button.submit-login').attr('data-dismiss','modal');
+    //     }else if(user === 'admin' && pass === '123'){
+    //       window.location.href='./pages/admin-order.html';
+    //     }else{
+    //       $('button.submit-login').removeAttr('data-dismiss');
+    //     }
+    // });
       
     // $('.info-profile a.process').on('click',function(){
     //     var tr =`
@@ -196,6 +193,114 @@ $('document').ready(function(){
     //     `;
     //      $('#list-address-profile').append(tr);
     // });
+
+    //
+    // button dang nhap
+    $('#btn-register-submit').on('click', function(e){
+        e.preventDefault();
+        var user = {
+            email: $('#email-reg').val(),
+            PWD: $('#pwd-reg').val(),
+            name: $('#name-reg').val(),
+            dob: $('#txtDOB').val(),
+            phone: $('#phone-reg').val()
+        }
+
+        $.ajax({
+            type: 'POST',
+            url: '/account/register',
+            contentType : "application/json",
+            dataType : 'json',
+            data: JSON.stringify(user),
+            success: function(user){
+              var div = `
+                  <div class="dropdown">
+                    <a class="btn btn-primary dropdown-toggle" href="#" role="button" data-toggle="dropdown">${user.tenNguoiDung}
+                    <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/account/profile">Hồ Sơ</a></li>
+                        <li><a href="/account/order-history">Đơn Hàng</a></li>
+                        <li><a href="javascript:;" id="logout-user">Đăng xuất</a></li>
+                    </ul>
+                  </div>
+              `;
+              $('.box-items-right').append(div);
+              $('.box-items-right .login-register').remove();
+              $('#close-modal-register').click();
+              swal("Đăng ký tài khoản thành công", "Bạn đã đăng nhập", "success");
+            },
+            error: function(e){
+                console.log('ERROR: ' + e);
+            }
+
+        });
+    }); 
+
+    $('#btn-login-submit').on('click', function(e){
+        e.preventDefault();
+
+        var user = {
+            email: $('#email-login').val(),
+            PWD: $('#pwd-login').val()
+        }
+
+        $.ajax({
+                  type: 'POST',
+                  url: '/account/login',
+                  contentType : "application/json",
+                  dataType : 'json',
+                  data: JSON.stringify(user),
+                  success: function(user){
+                    var div = `
+                        <div class="dropdown">
+                          <a class="btn btn-primary dropdown-toggle" href="#" role="button" data-toggle="dropdown">${user.tenNguoiDung}
+                          <span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                              <li><a href="/account/profile">Hồ Sơ</a></li>
+                              <li><a href="/account/order-history">Đơn Hàng</a></li>
+                              <li><a href="javascript:;" id="logout-user">Đăng xuất</a></li>
+                          </ul>
+                        </div>
+                    `;
+                    $('.box-items-right').append(div);
+                    $('.box-items-right .login-register').remove();
+                    $('#close-modal-login').click();
+                    swal("Đăng nhập tài khoản thành công", "Bạn đã đăng nhập", "success");
+                  },
+                  error: function(e){
+                      console.log('ERROR: ' + e);
+                  }
+
+              }); 
+    });
+
+    $('#logout-user').on('click', function(e){
+        e.preventDefault();
+        $.ajax({
+                  type: 'POST',
+                  url: '/account/logout',
+                  contentType : "application/json",
+                  dataType : 'json',
+                  success: function(res){
+                    var div = `
+                        <div class="login-register " >
+                            <a data-toggle="modal" href="#modal-login" class="">Đăng nhập</a>
+                            <label> / </label>
+                            <a data-toggle="modal" href="#modal-register" class="">Đăng ký</a>
+                        </div>
+                    `;
+                    $('.box-items-right').append(div);
+                    $('.box-items-right .dropdown').remove();
+                    swal("Bạn đã đăng xuất", "Đăng nhập để lưu lịch sử mua hàng", "success");
+                  },
+                  error: function(e){
+                      console.log('ERROR: ' + e);
+                  }
+
+              }); 
+    });
+
+
     $('#list-address-profile').on('click', '.remove-address' ,function(){
       $(this).closest('tr').remove();
   });
@@ -216,6 +321,113 @@ $('document').ready(function(){
                `;
          $('#list-address-profile').append(tr);
     });
+
+    $('#txtDOB').datepicker({
+        "format": "dd/mm/yyyy",
+        "autoclose": true,
+    }).datepicker('update', new Date());
+
+    //
+    // validation register
+    $('#email-reg').on('blur', function(){
+        var email = $('#email-reg').val();
+        if(email === ''){
+            errorShow('Email không được trống');
+            $('#email-reg').focus();
+            return;
+        }
+        if(!isEmail(email)){
+           errorShow('Email không chính xác (vd: @gmail, @yahoo ...)');
+           $('#email-reg').focus();
+           return;
+        }
+        errorHide();
+    });
+    $('#pwd-reg').on('blur', function(){
+        var pwd = $('#pwd-reg').val();
+        if(pwd === ''){
+            errorShow('Mật khẩu không được trống');
+            $('#pwd-reg').focus();
+            return;
+        }
+        if(pwd.length < 5){
+            errorShow('Mật khẩu phải dài hơn 4 ký tự');
+            $('#pwd-reg').focus();
+            return;
+        }
+        errorHide();
+    });
+    $('#repwd-reg').on('blur', function(){
+        var vr = $('#repwd-reg').val();
+        var re = $('#pwd-reg').val();
+        if(vr !== re){
+            errorShow('Mật khẩu không khớp');
+            return;
+        }
+        errorHide();
+    });
+    $('#repwd-reg').on('blur', function(){
+        var vr = $('#repwd-reg').val();
+        var re = $('#pwd-reg').val();
+        if(vr !== re){
+            errorShow('Mật khẩu không khớp');
+            return;
+        }
+        errorHide();
+    });
+    $('#name-reg').on('blur', function(){
+        var vr = $('#name-reg').val();
+        if(vr === ''){
+            errorShow('Tên không được trống');
+            return;
+        }
+        errorHide();
+    });
+    $('#phone-reg').on('blur', function(){
+        var vr = $('#phone-reg').val();
+        if(vr === ''){
+            errorShow('Số điện thoại không được trống');
+            return;
+        }
+        errorHide();
+    });
+    function errorShow(msg) {
+        $('#error-register').text(msg);
+        $('#error-register').removeClass('hide-div');
+    }
+    function errorHide() {
+        $('#error-register').addClass('hide-div');
+    }
+
+    $('#email-login').on('blur', function(){
+        var email = $('#email-login').val();
+        if(email === ''){
+            errorShowlogin('Email không được trống');
+            $('#email-login').focus();
+            return;
+        }
+        if(!isEmail(email)){
+           errorShow('Email không chính xác (vd: @gmail, @yahoo ...)');
+           $('#email-login').focus();
+           return;
+        }
+        errorHidelogin();
+    });
+    function errorShowlogin(msg) {
+        $('#error-login').text(msg);
+        $('#error-login').removeClass('hide-div');
+    }
+    function errorHidelogin() {
+        $('#error-login').addClass('hide-div');
+    }
+
+      function isEmail(email) {
+      var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+      return regex.test(email);
+    }
+    //
+    //
+
 });
 
   function openCity(evt, cityName) {
@@ -233,5 +445,4 @@ $('document').ready(function(){
   }
 
   // Get the element with id="defaultOpen" and click on it
-  document.getElementById("defaultOpen").click();
-  
+  document.getElementById("defaultOpen").trigger('click');

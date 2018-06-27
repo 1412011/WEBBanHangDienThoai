@@ -17,22 +17,29 @@
     <link rel='stylesheet' type='text/css' href='/assets/css/style.css'/>
     <link rel='stylesheet' type='text/css' href='/assets/css/slider.css'/>
     <link rel='stylesheet' type='text/css' href='/assets/css/main.css'/>
+    <link rel="stylesheet" type="text/css" href="/assets/bootstrap-datepicker/css/bootstrap-datepicker3.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/sweetalert2/sweetalert2.min.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,500i,600,600i,700,700i|Rubik:300,400,400i,500,500i,700,700i" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
     {{{_sections.css}}}
+    <script>
+        function myFunction() {
+            $('#modal-login').modal('show');
+        }
+</script>
 </head>
 <body>
 <header class="header header-width-container style4">
     <div class="header-top full-width">
         <div class="container">
             <div class="top-bar-left">
-                <div class="header-sale">Sự kiện store giảm giá sốc <span>đến 65% OFF!</span></div>
+                <div class="header-sale">Sự kiện store giảm giá sốc <span>đến 99% OFF!</span></div>
                 <div class="header-contact">Gọi cho chúng tôi: <span>0981 333 497</span></div>
             </div>
             <div class="top-bar-right">
                 <div class="switcher-current">
-                    <a href="#" class="switcher-item">VietNamDong (VND)</a>
+                    <a href="javascript:;" class="switcher-item" id="luachontien">VietNamDong (VND)</a>
                 </div>
                 <div class="switcher-language">
                     <a href="#" class="switcher-item"><img src="/images/imgs/flag-vi-language.png" alt="img">VietNamese</a>
@@ -55,19 +62,19 @@
                     </li>
                     <li class="menu-item menu-item-has-children"><a href="/home/about" class="kt-item-title" title="PAGES">Giới thiệu</a>
                     </li>
-                    <li class="menu-item menu-item-has-children"><a href="/shop/shopping" class="kt-item-title" title="Shop">Sản phẩm</a>
+                    <li class="menu-item menu-item-has-children"><a href="/shop/tat-ca-san-pham" class="kt-item-title" title="Shop">Sản phẩm</a>
                         <div class="submenu megamenu">
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="custommenu">
                                         <ul class="menu"> 
                                             <li class="menu-item"><a href="/shop/dien-thoai">ĐIỆN THOẠI</a></li>
-                                            <li class="menu-item items-child-1"><a href=/shop/dien-thoai">&rsaquo; APPLE - IPhone</a></li>
-                                            <li class="menu-item items-child-1"><a href="shop-grid-dt.html">&rsaquo; SAMSUNG</a></li>
-                                            <li class="menu-item items-child-1"><a href="shop-grid-dt.html">&rsaquo; HTC</a></li>
-                                            <li class="menu-item items-child-1"><a href="shop-grid-dt.html">&rsaquo; SONY</a></li>
-                                            <li class="menu-item items-child-1"><a href="shop-grid-dt.html">&rsaquo; NOKIA</a></li>
-                                            <li class="menu-item items-child-1"><a href="shop-grid-dt.html">&rsaquo; OPPO</a></li>
+                                            <li class="menu-item items-child-1"><a href="/shop/dien-thoai/apple">&rsaquo; APPLE - IPhone</a></li>
+                                            <li class="menu-item items-child-1"><a href="/shop/dien-thoai/samsung">&rsaquo; SAMSUNG</a></li>
+                                            <li class="menu-item items-child-1"><a href="/shop/dien-thoai/htc">&rsaquo; HTC</a></li>
+                                            <li class="menu-item items-child-1"><a href="/shop/dien-thoai/sony">&rsaquo; SONY</a></li>
+                                            <li class="menu-item items-child-1"><a href="/shop/dien-thoai/nokia">&rsaquo; NOKIA</a></li>
+                                            <li class="menu-item items-child-1"><a href="/shop/dien-thoai/oppo">&rsaquo; OPPO</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -75,10 +82,10 @@
                                     <div class="custommenu">
                                         <ul class="menu">
                                             <li class="menu-item"><a href="/shop/may-tinh-bang">MÁY TÍNH BẢNG</a></li>
-                                            <li class="menu-item items-child-1"><a href="shop-grid-mtb.html">&rsaquo; APPLE - IPad</a></li>
-                                            <li class="menu-item items-child-1"><a href="shop-grid-mtb.html">&rsaquo; SAMSUNG</a></li>
-                                            <li class="menu-item items-child-1"><a href="shop-grid-mtb.html">&rsaquo; HUAWEI</a></li>
-                                            <li class="menu-item items-child-1"><a href="shop-grid-mtb.html">&rsaquo; LENOVO</a></li>
+                                            <li class="menu-item items-child-1"><a href="/shop/may-tinh-bang/apple">&rsaquo; APPLE - IPad</a></li>
+                                            <li class="menu-item items-child-1"><a href="/shop/may-tinh-bang/samsung">&rsaquo; SAMSUNG</a></li>
+                                            <li class="menu-item items-child-1"><a href="/shop/may-tinh-bang/huawei">&rsaquo; HUAWEI</a></li>
+                                            <li class="menu-item items-child-1"><a href="/shop/may-tinh-bang/lenovo">&rsaquo; LENOVO</a></li>
                                         </ul>
                                     </div> 
                                 </div>
@@ -90,23 +97,30 @@
                 </ul>
             </div>
             <div class="box-items-right">
+                {{#if layoutVM.isLogged}}
+                <div class="dropdown">
+                    <a class="btn btn-primary dropdown-toggle" href="#" role="button" data-toggle="dropdown">{{layoutVM.curUser.tenNguoiDung}}
+                    <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/account/profile">Hồ Sơ</a></li>
+                        <li><a href="/account/order-history">Đơn Hàng</a></li>
+                        <li><a href="javascript:;" id="logout-user">Đăng xuất</a></li>
+                    </ul>
+                </div>
+                {{else}}
                 <div class="login-register " >
                     <a data-toggle="modal" href="#modal-login" class="">Đăng nhập</a>
                     <label> / </label>
                     <a data-toggle="modal" href="#modal-register" class="">Đăng ký</a>
                 </div>
-                <div class="dropdown hide-div">
-                    <a class="btn btn-primary dropdown-toggle" href="#" role="button" data-toggle="dropdown">Nguyễn Hoàng Anh
-                    <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="account.html">Hồ Sơ</a></li>
-                        <li><a href="account.html">Đơn Hàng</a></li>
-                        <li><a href="index.html">Đăng xuất</a></li>
-                    </ul>
-                </div>
+                {{/if}}
             </div>
         </div>
-         
+        
+        {{#if openModal}}
+        <iframe class="hide-div" onload="myFunction()" src=""></iframe>
+        {{/if}}
+
          <!-- modal Login -->
         <div class="container">
             <!-- Modal -->
@@ -115,29 +129,34 @@
                     <div class="modal-content">
                         <div class="modal-body">
                             <div class="close-modal-x">
-                                <a data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times" aria-hidden="true"></i></span></a>
+                                <a id="close-modal-login" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times" aria-hidden="true"></i></span></a>
                             </div>
                             <h3 class="header-title-modal">Đăng nhập SmartMarket</h3>
+                            <!-- <div class="alert alert-danger">
+                                <strong>Đăng nhập thất bại:</strong> email hoặc mật khẩu không chính xác !!
+                            </div> -->
+                            <div class="alert alert-danger hide-div" id="error-login">
+                            </div>
                             <div class="form-login-input">
-                                <form>
+                                <form action="" method="POST" role="form">
                                     <div class="form-input">
-                                        <input type="text" class="form-control" value="user1" placeholder="Email">
+                                        <input type="text" class="form-control" id="email-login" name='email' value="" placeholder="Email">
                                     </div>
                                     <div class="form-input">
-                                        <input type="password" class="form-control" value="123" placeholder="Mật khẩu">
+                                        <input type="password" class="form-control" id="pwd-login" name='pwd' value="" placeholder="Mật khẩu">
                                     </div>
                                     <div class="checkbox cb-dieukhoan">
                                         <label><input type="checkbox" value="">Ghi nhớ</label>
                                     </div>
                                     <p class="form-submit">
-                                        <button type="button" class="btn btn-default submit-login">Login</button>
+                                        <button type="submit" class="btn btn-default submit-login" id="btn-login-submit" >Đăng nhập ngay</button>
                                     </p>
 
                                     <div class="fg-pass">
                                         <a class="register" data-dismiss="modal" data-toggle="modal" href="#modal-register">Đăng ký tài khoản mới</a>
                                     </div>
                                     <div class="fg-pass">
-                                        <a class="forget-password" href="#modal-foget-pass" data-dismiss="modal" data-toggle="modal">Quên mật khẩu</a>
+                                        <a class="forget-password" href="#modal-foget-pass" data-dismiss="modal" data-toggle="modal">Quên mật khẩu</a> 
                                     </div>
                                 </form>
                             </div>                                
@@ -168,7 +187,7 @@
                                     </div>
 
                                     <p class="form-submit">
-                                        <button type="button" class="btn btn-default submit-login" data-dismiss="modal">Gửi mail</button>
+                                        <button type="submit" class="btn btn-default submit-login" data-dismiss="modal">Gửi mail</button>
                                     </p>
 
                                 </form>
@@ -189,28 +208,38 @@
                     <div class="modal-content">
                         <div class="modal-body">
                             <div class="close-modal-x">
-                                <a data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times" aria-hidden="true"></i></span></a>
+                                <a id="close-modal-register" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times" aria-hidden="true"></i></span></a>
                             </div>
                             <h3 class="header-title-modal">Đăng ký Smart Store</h3>
+                            <div class="alert alert-danger hide-div" id="error-register">
+                            </div>
                             <div class="form-login-input">
-                                <form>
+                                <form action="" method="POST" role="form"> 
                                     <div class="form-input">
-                                        <input type="text" class="form-control" placeholder="Email">
+                                        <input type="email" class="form-control" id="email-reg" name="email" placeholder="Email">
                                     </div>
                                     <div class="form-input">
-                                        <input type="password" class="form-control" placeholder="Mật khẩu">
+                                        <input type="password" class="form-control" id="pwd-reg" name="PWD" placeholder="Mật khẩu">
                                     </div>
                                     <div class="form-input">
-                                        <input type="password" class="form-control" placeholder="Nhập lại Mật khẩu">
+                                        <input type="password" class="form-control" id="repwd-reg" name="rePWD" placeholder="Nhập lại Mật khẩu">
+                                    </div>
+                                    <div class="form-input">
+                                        <input type="text" class="form-control" id="name-reg" name="name" placeholder="Họ và Tên">
+                                    </div>
+                                    <div class="form-input">
+                                        <input type="text" class="form-control" id="txtDOB" name="dob" placeholder="Ngày sinh - dd/mm/yyyy">
+                                    </div>
+                                    <div class="form-input">
+                                        <input type="text" class="form-control" id="phone-reg" name="phone" placeholder="Số điện thoại">
                                     </div>
                                     <div class="g-recaptcha" data-sitekey="6LdrEVYUAAAAAIW-wRsQhJiSJlOPmKMqvagwbiuX">
-                                        
                                     </div>
                                    <div class="checkbox cb-dieukhoan">
                                         <label><input type="checkbox" value="">Chấp nhận <a class="a-txt-gach-chan" href="">điều khoản</a> của SmartMarket</label>
                                     </div>
                                     <p class="form-submit">
-                                        <button type="button" class="btn btn-default submit-login">Đăng ký ngay</button>
+                                        <button type="submit" class="btn btn-default submit-login" id ="btn-register-submit" >Đăng ký ngay</button>
                                     </p>
 
                                 </form>
@@ -231,8 +260,8 @@
                 </div>
                 <div class="vertical-menu-content">
                     <ul class="vertical-menu-items">
-                        <li class="menu-item"><a href="shop-grid-dt.html"><i class="fa fa-mobile"></i>Điện thoại</a></li>
-                        <li class="menu-item"><a href="shop-grid-mtb.html"><i class="fa fa-tablet"></i>Máy tính bảng</a></li>
+                        <li class="menu-item"><a href="/shop/dien-thoai"><i class="fa fa-mobile"></i>Điện thoại</a></li>
+                        <li class="menu-item"><a href="/shop/may-tinh-bang"><i class="fa fa-tablet"></i>Máy tính bảng</a></li>
                     </ul>
                 </div>
             </div>
@@ -245,8 +274,6 @@
                             <option value="maytinhbang">Máy tính bảng</option>
                             <option value="android">Android</option>
                             <option value="ios">IOS </option>
-                            <option value="window phone">Window Phone </option>
-                            <option value="Blackberry">Blackberry</option>
                         </select>
                     </div>
                     <input type="text" placeholder="Bạn cần tìm gì?">
@@ -258,32 +285,37 @@
                     <div class="header-mini-cart">
                         <a href="#">
                             <span class="icon icon_bag_alt"></span>
-                            <span class="count">2</span>
+                            <span class="count">0</span>
                             <span class="total">25 000 000 đ</span>
                         </a>
                         <div class="mini-cart-content">
-                            <ul class="items">
-                                <li class="item">
-                                    <a href="#" class="product-media"><img src="/images/imgs/ip-5-16GB-0.jpg" alt="img"></a>
-                                    <div class="product-info">
-                                        <div class="price">
-                                            <label class="unit-price">5 000 000đ</label>
-                                            <label class="lable-mulx-minicart" style="color: #000;">x</label>                            
-                                            <a href="javascript:;" class="sign minus"><i class="fa fa-minus"></i></a>
-                                            <label class="quantity-mini-cart">1</label>                       
-                                            <a href="javascript:;" class="sign plus"><i class="fa fa-plus"></i></a>
+                            <div class="hide-div">
+                                <ul class="items">
+                                    <li class="item">
+                                        <a href="#" class="product-media"><img src="/images/imgs/ip-5-16GB-0.jpg" alt="img"></a>
+                                        <div class="product-info">
+                                            <div class="price">
+                                                <label class="unit-price">5 000 000đ</label>
+                                                <label class="lable-mulx-minicart" style="color: #000;">x</label>                            
+                                                <a href="javascript:;" class="sign minus"><i class="fa fa-minus"></i></a>
+                                                <label class="quantity-mini-cart">1</label>                       
+                                                <a href="javascript:;" class="sign plus"><i class="fa fa-plus"></i></a>
+                                            </div>
+                                            <div class="product-name"><a href="#">Iphone 5s 32GB</a></div>
                                         </div>
-                                        <div class="product-name"><a href="#">Iphone 5s 32GB</a></div>
-                                    </div>
-                                    <a href="javascript:;" class="remove-li">x</a>
-                                </li>  
-                            </ul>
-                            <div class="subtotal">Tổng<span>25 000 000đ</span></div>
-                            <div class="actions">
-                                <a href="shopping-cart.html" class="btn-process">XEM GIỎ HÀNG</a>
-                                <a href="checkout.html" class="btn-process btn-checkout">THANH TOÁN</a>
+                                        <a href="javascript:;" class="remove-li">x</a>
+                                    </li>  
+                                </ul>
+                                <div class="subtotal">Tổng<span>25 000 000đ</span></div>
+                                <div class="actions">
+                                    <a href="shopping-cart.html" class="btn-process">XEM GIỎ HÀNG</a>
+                                    <a href="checkout.html" class="btn-process btn-checkout">THANH TOÁN</a>
+                                </div>
                             </div>
-                        </div>
+                            <div class="empty-cart">
+                                Giỏ hàng hiện không có sản phẩm. Hãy mua sắm sản phẩm yêu thích của bạn.
+                            </div>
+                        </div> <!-- end mini cart -->
                     </div>
                 </div>
             </div>
@@ -397,6 +429,9 @@
 <script type="text/javascript" src='https://www.google.com/recaptcha/api.js'></script>
 <script type="text/javascript" src='https://www.google.com/recaptcha/api.js?hl=vi'></script>
 <script type="text/javascript" src="/assets/js/mainweb.js"></script>
+<script src="/assets/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+<script type="text/javascript" src="/assets/sweetalert2/sweetalert2.min.js"></script>
+
 {{{_sections.js}}}
 </body>
 
