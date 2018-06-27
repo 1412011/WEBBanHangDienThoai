@@ -35,7 +35,7 @@ router.post('/login', (req, res) => {
 		pass: SHA256(req.body.PWD).toString()
 	};
 	nguoidungRepo.login(user).then(rows => {
-		console.log(rows); 
+
 		if (rows.length > 0) {
             req.session.isLogged = true;
             req.session.user = rows[0];

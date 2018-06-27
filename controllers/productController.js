@@ -47,6 +47,13 @@ router.get('/product-detail', (req, res) => {
 	});
 });
 
+router.post('/quickview', (req, res) => {
+	
+	sanphamRepo.load_1_sp(req.body.id).then(rows => {
+
+			res.send(rows[0]);
+	});
+});
 
 
 module.exports = router;

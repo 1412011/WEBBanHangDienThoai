@@ -3540,7 +3540,7 @@ blockquote span{
     text-align: center;
     padding: 5px 0;
     background: #ebebeb;
-    margin-bottom: 30px;
+    margin-top: 20px !important;
     cursor: pointer;
     position: relative;
 }
@@ -3788,7 +3788,7 @@ blockquote span{
     color: #232530;
     margin: 10px 0 10px 0;
 }
-.product-single .product-single-button .quantity-product{
+.product-single .product-single-button /*.quantity-product*/{
     margin: 10px 0px 50px 0;
 }
 
@@ -4153,9 +4153,8 @@ blockquote span{
     color: #b7b7b7;
     font-size: 14px;
     text-transform: capitalize;
-    margin-left: 5px;
+    margin-left: 0px !important;
     display: inline-block;
-    margin-bottom: 20px;
     font-size: 20px;
     color: black;
 }

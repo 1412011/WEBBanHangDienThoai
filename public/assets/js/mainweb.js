@@ -300,6 +300,36 @@ $('document').ready(function(){
               }); 
     });
 
+    $('a.quick-view').on('click', function(){
+        var id = +$(this).data('id');
+        var user = {
+          id: id
+        }
+        console.log(user);
+        $.ajax({
+                  type: 'POST',
+                  url: '/product/quickview',
+                  contentType : "application/json",
+                  dataType : 'json',
+                  data: JSON.stringify(user),
+                  success: function(user){
+                    console.log(user);
+                      $('.preview-image-product').attr('src',user.duongDan);
+                      $('.view-more').text(user.tenNhaSanXuat);
+                      $('.product-title').text(user.tenSanPham);
+                      $('#giaxemnhanh').text(formatMoney(user.gia));
+                      $('#soluotxem').text(user.soLuotXem);
+                      $('#soluongban').text(user.soLuongBan);
+                      $('#soluongton').text(user.soLuongTon);
+
+                      $('#modal-quickview').modal('show');
+                  },
+                  error: function(e){
+                      console.log('ERROR: ' + e);
+                  }
+
+              }); 
+    });
 
     $('#list-address-profile').on('click', '.remove-address' ,function(){
       $(this).closest('tr').remove();

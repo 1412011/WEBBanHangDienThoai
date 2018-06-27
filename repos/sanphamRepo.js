@@ -8,7 +8,7 @@ exports.loadAll = () => {
     		ORDER BY RAND()`;
 	return db.load(sql);
 }
-
+ 
 exports.load_sp_theoloai_nsx = (idloai, idnsx) => {
 	var sql = `select sp.idSanPham, tenSanPham, gia, giaGiam, danhGia ,tenNhaSanXuat, duongDan
 			from sanpham sp, nhasanxuat nsx, hinhanh ha
@@ -46,35 +46,40 @@ exports.load_cungnsx = (s, limit, offset) => {
 // load main
 
 exports.load_sp_sieupham_dt = () => {
-	var sql = `select sp.idSanPham, tenSanPham, gia, giaGiam, danhGia ,tenNhaSanXuat, duongDan from sanpham sp, nhasanxuat nsx, hinhanh ha
+	var sql = `select sp.idSanPham, tenSanPham, gia, giaGiam, danhGia ,tenNhaSanXuat, duongDan, soLuongTon, soLuongBan, soLuotXem 
+				from sanpham sp, nhasanxuat nsx, hinhanh ha
 				where sp.idNhaSanXuat=nsx.idNhaSanXuat and ha.idSanPham=sp.idSanPham and ha.loaiHinhAnh=0 and sp.idLoaiSanPham = 1
 				order by gia DESC LIMIT ${config.SAN_PHAM_TRANG_CHU}`; 
 	return db.load(sql);
 }
 
 exports.load_sp_sieupham_mtb = () => {
-	var sql = `select sp.idSanPham, tenSanPham, gia, giaGiam, danhGia ,tenNhaSanXuat, duongDan from sanpham sp, nhasanxuat nsx, hinhanh ha
+	var sql = `select sp.idSanPham, tenSanPham, gia, giaGiam, danhGia ,tenNhaSanXuat, duongDan
+				from sanpham sp, nhasanxuat nsx, hinhanh ha
 				where sp.idNhaSanXuat=nsx.idNhaSanXuat and ha.idSanPham=sp.idSanPham and ha.loaiHinhAnh=0 and sp.idLoaiSanPham = 2
 				order by gia DESC LIMIT ${config.SAN_PHAM_TRANG_CHU}`; 
 	return db.load(sql);
 }
 
 exports.load_sp_Lasest = () => {
-	var sql = `select sp.idSanPham, tenSanPham, gia, giaGiam, danhGia ,tenNhaSanXuat, duongDan from sanpham sp, nhasanxuat nsx, hinhanh ha
+	var sql = `select sp.idSanPham, tenSanPham, gia, giaGiam, danhGia ,tenNhaSanXuat, duongDan
+				from sanpham sp, nhasanxuat nsx, hinhanh ha
 				where sp.idNhaSanXuat=nsx.idNhaSanXuat and ha.idSanPham=sp.idSanPham and ha.loaiHinhAnh=0
 				order by ngayNhapHang DESC LIMIT ${config.SAN_PHAM_TRANG_CHU}`;
 	return db.load(sql);
 }
 
 exports.load_sp_MostView = () => {
-	var sql = `select sp.idSanPham, tenSanPham, gia, giaGiam, danhGia ,tenNhaSanXuat, duongDan from sanpham sp, nhasanxuat nsx, hinhanh ha
+	var sql = `select sp.idSanPham, tenSanPham, gia, giaGiam, danhGia ,tenNhaSanXuat, duongDan
+				from sanpham sp, nhasanxuat nsx, hinhanh ha
 				where sp.idNhaSanXuat=nsx.idNhaSanXuat and ha.idSanPham=sp.idSanPham and ha.loaiHinhAnh=0 
 				order by soLuotXem DESC LIMIT ${config.SAN_PHAM_TRANG_CHU}`;
 	return db.load(sql);
 }
 
 exports.load_sp_BestSeller = () => {
-	var sql = `select sp.idSanPham, tenSanPham, gia, giaGiam, danhGia ,tenNhaSanXuat, duongDan from sanpham sp, nhasanxuat nsx, hinhanh ha
+	var sql = `select sp.idSanPham, tenSanPham, gia, giaGiam, danhGia ,tenNhaSanXuat, duongDan
+				from sanpham sp, nhasanxuat nsx, hinhanh ha
 				where sp.idNhaSanXuat=nsx.idNhaSanXuat and ha.idSanPham=sp.idSanPham and ha.loaiHinhAnh=0 
 				order by soLuongBan DESC LIMIT ${config.SAN_PHAM_TRANG_CHU}`;
 	return db.load(sql); 
@@ -97,6 +102,8 @@ exports.single = (id) => {
     });
 }
 
-exports.load_spcungloai = () => {
-	var sql = `select *`
+exports.load_1_sp = (id) => {
+	var sql = `select * from sanpham sp, nhasanxuat nsx, hinhanh ha 
+        			where sp.idSanPham=${id} and sp.idNhaSanXuat=nsx.idNhaSanXuat and ha.idSanPham=sp.idSanPham and ha.loaiHinhAnh=0 `;
+    return db.load(sql);
 }
