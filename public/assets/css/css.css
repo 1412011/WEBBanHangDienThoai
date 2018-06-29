@@ -1,0 +1,404 @@
+body {
+	font-family: Segoe UI;
+	font-size: 1em;
+	color: #000;
+}
+
+
+.pre-header {
+	width: 100%;
+	background-color: #f0f2f9;
+	position: fixed;
+	top: 0;
+	left: 0;
+	padding: 5px 0;
+	transition: all 400ms ease;
+	z-index: 1001;
+}
+
+.pre-header-fixed {
+	width: 100%;
+	background-color: #f0f2f9;
+	position: fixed;
+	top: 0;
+	left: 0;
+	padding: 0;
+	transition: all 400ms ease;
+	z-index: 1001;
+}
+
+.header {
+	width: 100%;
+	background-color: rgba(68,82,97,0.9);
+	box-shadow: 0px 1px 0px #fff;
+	position: fixed;
+	top: 34px;
+	left: 0;
+	padding: 5px 0;
+	transition: all 400ms ease;
+	z-index: 1000;
+}
+
+.header-fixed {
+	width: 100%;
+	background-color: rgba(68,82,97,0.9);
+	box-shadow: 0px 4px 10px rgba(68,82,97,0.8);
+	position: fixed;
+	top: 24px;
+	left: 0;
+	padding: 5px 0;
+	transition: all 400ms ease;
+	z-index: 1000;
+}
+
+.NavBar {
+	display: flex;
+	padding: 10px 0;
+	margin: 0;
+	transition: all 400ms ease;
+}
+
+.logoBox {
+	text-align: right;
+	padding: 0;
+}
+
+.AnhLogo {
+	width: 55px;
+	transition: all 400ms ease;
+}
+
+.NavBar a {
+	font-family: Segoe UI Light;
+	text-decoration: none;
+	color: #d0d0d0;
+	font-size: 20px;
+	margin: 0 25px;
+	font-weight: bold;
+}
+
+.NavBar-fixed a {
+	font-family: Segoe UI Light;
+	text-decoration: none;
+	color: #d0d0d0;
+	font-size: 20px;
+	margin: 0 25px;
+	font-weight: bold;
+}
+
+.NavBar li {
+	list-style: none;
+}
+
+.NavBar-fixed li {
+	list-style: none;
+}
+
+.Menu {
+	padding: 6px 0;
+}
+
+.NavbarSearch {
+	padding: 6px 0;
+	transition: all 400ms ease;
+}
+
+.NavBar a:hover {
+	color: #fff;
+}
+
+.NavBar-fixed a:hover {
+	color: #fff;
+}
+
+.NavbarSearch-fixed {
+	padding: 0;
+	transition: all 400ms ease;
+}
+
+.AnhLogo-fixed {
+	margin-right: 20px;
+	width: 40px;
+	transition: all 400ms ease;
+}
+
+.NavBar-fixed {
+	display: flex;
+	padding: 0;
+	margin: 0;
+	transition: all 400ms ease;
+}
+
+.submenu {
+	position: absolute; 
+	padding-left: 0; 
+	top: 75px; 
+	visibility: hidden;
+	opacity: 0;
+	transition: all 300ms ease-out;
+}
+
+#NavBar li:hover .submenu {
+	visibility: visible;
+	opacity: 1;
+	top: 45px;
+}
+
+.footer {
+	background-color: rgba(21,25,29,0.9);
+	width: 100%;
+	color: #fff;
+	text-align: center;
+	position: relative;
+	top: 37px;
+}
+
+.phright a:hover {
+	text-decoration: none;
+}
+
+.phright-fixed a:hover {
+	text-decoration: none;
+}
+
+.CotCategory-fixed {
+	position: fixed;
+	top: 100px;
+}
+
+.card-header {
+	text-align: center;
+    font-weight: bold;
+    color: #fff;
+    background-color: #23428f;
+}
+
+.card {
+	font-size: 13px;
+}
+
+#CotCategory .list-group-item {
+	padding: .75rem .75rem;
+}
+
+.list-group-item:first-child {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+
+}
+
+.list-group-item.active {
+	color: #fff;
+    background-color: #189eff;
+    border-color: #189eff;
+}
+
+.list-group-item.active img {
+	filter: brightness(0) invert(1);
+}
+
+.list-group-item-action:hover {
+	color: #ffffff;
+    background-color: #189eff;
+    transition: background-color 0.3s ease-in;
+}
+
+.list-group-item-action:hover img {
+	filter: brightness(0) invert(1);
+}
+
+.DanhMuc {
+	margin-bottom: 50px;
+}
+
+.TenDanhMuc {
+	position: relative;
+	color: #fff;
+	border-bottom: 30px solid #23428f;
+	border-right: 50px solid transparent; 
+	width: 230px; 
+}
+
+.Name {
+	position: absolute;
+	left: 10px;
+	top: 3px;
+}
+/*.myRow {
+	height: 590px;
+}*/
+
+/*.sticky .mb-3 {
+	margin-left: 80px;
+}*/
+
+/*#container h1 {
+	font-size: 4.5rem;
+	
+	text-align: center;
+}*/
+
+/*.welcome {
+	margin-top: 170px;
+}
+
+.aboutUS {
+	margin-top: 100px;
+}*/
+
+/*#container h3, h4 {
+	text-align: center;
+	margin: 10px 0;
+}*/
+
+/*hr {
+	display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 0 auto;
+}*/
+
+/*.avatar {
+	width: 150px;
+	margin: 50px;
+}
+
+.avatar img {
+	border: 2px solid #fff;
+	filter: grayscale(100%);
+	border-radius:50%;
+}
+
+.avatar img:hover {
+	filter: grayscale(0%);
+	transform: scale(1.5);
+	transition: all 400ms ease;
+	border: 3px solid #ffc107;
+}*/
+
+/*.bg-warning {
+	background-color: #dd7346 !important;
+}*/
+
+/*.sticky {
+	margin-top: 60px;
+}
+
+.sticky .card {
+	color: #fff;
+}*/
+
+/*.card {
+	top: 50px;
+	color: #000;
+	margin-left: 20px;
+}*/
+
+/*.DanhMuc {
+	font-size: 22px;
+	margin: 40px;
+}*/
+
+
+#DanhSachHienThi .col,.DanhMuc .col {
+	margin-bottom: 30px;
+}
+
+.XemChiTiet {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 222px;
+	height: 222px;
+	text-align: center;
+	line-height: 222px;
+	background-color: #00000085;
+	font-size: 25px;
+	color: #fff;
+	opacity: 0;
+	text-decoration: none;
+	transition: all 500ms ease;
+}
+
+.XemChiTiet:hover {
+	opacity: 1;
+	color: #fff;
+	text-decoration: none;
+}
+
+.ChiTietSanPham {
+	width: 1170px;
+	margin: 50px auto;
+	background-color: #fff;
+	border-radius: 5px;
+}
+
+.ChiTietGioHang {
+	width: 1200px;
+	margin: 50px auto;
+	background-color: #fff;
+	border-radius: 5px;
+}
+
+.PopupTaiKhoan {
+	position: absolute; 
+	top: 24px; 
+	right: 50px; 
+	width: 200px; 
+	background-color: #d22f64; 
+	border-radius: 2px; 
+	color: #fff;
+	display: none;
+}
+
+.PopupTaiKhoan .list-group-item-action:hover {
+    		background-color: #b72756;
+
+		}
+.PopupTaiKhoan  .list-group-item-action {
+	background-color: #d22f64;
+	color: #fff;
+}
+
+.DashboardAdmin {
+	text-align: center;
+	color: #fff;
+	font-size: 16px;
+	font-weight: bold;
+	padding-top: 115px;
+	float: left; 
+	width: 150px; 
+	height: 150px; 
+	margin: 10px;
+	border: 0 solid;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
+  outline: 1px solid;
+  outline-color: rgba(255, 255, 255, 0.5);
+  outline-offset: 0px;
+  text-shadow: none;
+  transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.DashboardAdmin:hover {
+	border: 1px solid;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.2);
+  outline-color: rgba(255, 255, 255, 0);
+  outline-offset: 15px;
+}
+
+#QLDonHang .alert-warning {
+	background-color: #ffc107;
+}
+
+#QLDonHang .alert-danger {
+	background-color: #dc3545;
+}
+
+#QLDonHang .alert-success {
+	background-color: #28a745;
+}
+
+#QLDonHang tr {
+	color: #fff;
+}

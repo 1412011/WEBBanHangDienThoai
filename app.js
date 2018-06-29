@@ -11,6 +11,7 @@ var MySQLStore = require('express-mysql-session')(session);
 var homeController = require('./controllers/homeController'),
 	cartController = require('./controllers/cartController'),
 	accountController = require('./controllers/accountController'),
+    adminController = require('./controllers/adminController'),
 	productController = require('./controllers/productController'),
 	shopController = require('./controllers/shopController');
  
@@ -82,6 +83,7 @@ app.use('/shop', shopController);
 app.use('/cart', cartController);
 app.use('/product', productController);
 app.use('/account', accountController);
+app.use('/admin', adminController);
 
 app.use(handle404MDW); 
 
