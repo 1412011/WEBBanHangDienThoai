@@ -760,6 +760,9 @@ th, td {
 .margin-top-40{
     margin-top: 40px;
 }
+.margin-top-60{
+    margin-top: 60px;
+}
 .margin-left-10{
     margin-left: 10px;
 }
@@ -1346,6 +1349,9 @@ th, td {
     text-transform: capitalize;
     height: 38px;
     line-height: 34px;
+}
+.disable-page{
+    cursor: not-allowed;
 }
 .pagination {
     display: inline-block;
@@ -2596,6 +2602,7 @@ blockquote span{
     width: 12px;
     border-radius: 50%;
 }
+
 .button-price-slider{
     font-weight: 500;
     color: #fff;
@@ -2605,10 +2612,11 @@ blockquote span{
     position: absolute;
     height: 40px;
     line-height: 40px;
-    border-radius: 3px;
-    top: -5px;
-    right: 0;
+    border-radius: 4px;
+    /*top: 0px;*/
+   /* right: 0;*/
     padding:0 34px;
+    margin-top: 20px;
 }
 .button-price-slider:hover{
     color: #fff;
@@ -3087,11 +3095,11 @@ blockquote span{
     display: inline-block;
     cursor: pointer;
 }
-.product-item .product-name{
+.product-item .product-name{ 
     margin-bottom: 0;
     font-size: 14px;
     line-height: 20px;
-    font-weight: 500;
+    font-weight: bold;
     margin-bottom: 6px;
 }
 .product-item .product-media{
@@ -6333,6 +6341,7 @@ blockquote span{
 .header-control{
     float: right;
     margin-top: 6px;
+    min-width: 170px;
 }
 .header .transport{
     padding: 0;

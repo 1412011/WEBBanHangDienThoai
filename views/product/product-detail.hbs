@@ -10,13 +10,13 @@
                 <nav class="breadcrumb-trail breadcrumbs">
                     <ul class="trail-items">
                         <li class="trail-item trail-begin">
-                            <a href="index.html"><span>Trang chủ</span></a>
+                            <a href="/"><span>Trang chủ</span></a>
                         </li>
                         <li class="trail-item trail-begin">
-                            <a href="shop-grid.html"><span>Sản phẩm</span></a>
+                            <a href="/shop/tat-ca-san-pham"><span>Sản phẩm</span></a>
                         </li>
                         <li class="trail-item trail-begin">
-                            <a href="shop-detail-accessories.html"><span>Chi tiết sản phẩm</span></a>
+                            <a href="#"><span>Chi tiết sản phẩm</span></a>
                         </li>
                     </ul>
                 </nav>
@@ -45,7 +45,7 @@
                         </div>
                         {{#with sp}}
                         <div class="product-single-button">
-                            <h1 class="product-title">{{tenSanPham}}</h1>
+                            <h1 class="product-title title-product-main">{{tenSanPham}}</h1>
                             <a href="#" class="view-more">{{tenNhaSanXuat}}</i></a>
                             <div class="transport"><span class="ti-truck"></span>Miễn phí giao hàng</div>
                             <div class="row r-price">
@@ -66,7 +66,7 @@
                                 <span class="label-quantity">Số lượng:</span>
                                 <div class="buttons_added">
                                     <a href="#" class="sign plus"><i class="fa fa-caret-down"></i></a>
-                                    <input type="text" value="1" title="Qty" class="input-text qty text" size="1">
+                                    <input type="text" value="1" id="quantity-buy" title="Qty" class="input-text qty text" size="1">
                                     <a href="#" class="sign minus"><i class="fa fa-caret-up"></i></a>
                                 </div>
                             </div>
@@ -82,8 +82,11 @@
                                  <span>Sản phẩm còn lại: </span>
                                  <span>{{soLuongTon}}</span>
                             </div>
-                            <a href="#" class="add-to-cart-detail">THÊM GIỎ HÀNG</a>
-                            <a href="#" class="add-to-cart-detail">ĐẶT HÀNG NGAY</a>
+                            {{#if ../layoutVM.isLogged}}
+                            <div class="margin-top-60">
+                                <a href="javascript:;" data-id={{idSanPham}} class="add-to-cart-detail">THÊM GIỎ HÀNG</a>
+                            </div>
+                            {{/if}}
                         </div>
                     </div>
                     <!-- modal Login -->
@@ -226,7 +229,7 @@
                                         <ins>{{number_format gia}}</ins>
                                     </span>
                                     
-                                     <div><button type="button" class="btn btn-primary add_to_cart">Mua ngay</button></div>
+                                     <div><button type="button" data-id={{idSanPham}} class="btn btn-primary add_to_cart add-mini-cart">Mua ngay</button></div>
                                 </div>
                             </li>
                             {{/each}}
@@ -245,7 +248,7 @@
                                         <ins>{{number_format gia}}</ins>
                                     </span>
                                     
-                                     <div><button type="button" class="btn btn-primary add_to_cart">Mua ngay</button></div>
+                                     <div><button type="button" data-id={{idSanPham}} class="btn btn-primary add_to_cart add-mini-cart">Mua ngay</button></div>
                                 </div>
                             </li>
                             {{/each}}
@@ -273,7 +276,7 @@
                             <a href="#"><i class="fa fa-star-o"></i></a>
                             <span>(0)</span>
                         </div>
-                        <h3 class="product-name"><a href="#">{{tenSanPham}}</a></h3>
+                        <h3 class="product-name"><a href="/product/product-detail?id={{idSanPham}}">{{tenSanPham}}</a></h3>
                     </div>
                     <div class="product-media">
                         <figure>
@@ -293,7 +296,7 @@
                         <div class="group-btn-control">
                             <div class="inner">
                                 <a href="#" class="compare button"><span class="arrow_left-right_alt"></span></a>
-                                <a href="#" class="add_to_cart">Thêm giỏ hàng</a>
+                                <a href="javascript:;" data-id={{idSanPham}} class="add_to_cart add-mini-cart">Thêm giỏ hàng</a>
                                 <a href="#" class="button add_to_wishlist"><span class="icon_heart_alt"></span></a>
                             </div>
                         </div>

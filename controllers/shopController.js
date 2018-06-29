@@ -12,15 +12,44 @@ router.get('/', (req, res) => {
 
 router.get('/tat-ca-san-pham', (req, res) => {
 
-	var p1 = sanphamRepo.loadAll();
-	var p2 = nhasanxuatRepo.loadAll_in_all_product();
+	var spage = req.query.page;
+    if (!spage) {
+        spage = 1;
+    }
+    var page = +spage;
 
-	Promise.all([p1,p2]).then(([rsp, rnsx]) => {
-	
+    var PRODUCT_PER_PAGE = 6;
+    var offset = (page - 1) * PRODUCT_PER_PAGE;
+
+	var p1 = sanphamRepo.loadAll_limit(PRODUCT_PER_PAGE, offset);  
+	var p2 = nhasanxuatRepo.loadAll_in_all_product();
+	var p3 = sanphamRepo.countAll();
+
+	Promise.all([p1,p2,p3]).then(([rsp, rnsx, count]) => {
+		
+		var total = count[0].total;
+		var nPages = total / PRODUCT_PER_PAGE;
+        if (total % PRODUCT_PER_PAGE > 0) { 
+            nPages++;
+        }
+
+        var numbers = [];
+        for (i = 1; i <= nPages; i++) {
+            numbers.push({
+                value: i,
+                isCurPage: i === +page
+            });
+        }
+
 		var vm ={
-			sp: rsp,
-			nsx: rnsx
-		};
+					sp: rsp,
+					nsx: rnsx,
+					page_numbers: numbers,
+					curPage: page,
+					max_page: nPages,
+					isMaxPage: page === nPages,
+					isMinPage: page === 1,
+				};
 		res.render('shop/shopping', vm)
 	
 	});
@@ -28,6 +57,14 @@ router.get('/tat-ca-san-pham', (req, res) => {
 
 router.get('/:namecat', (req, res) => {
 
+	var spage = req.query.page;
+    if (!spage) {
+        spage = 1;
+    }
+    var page = +spage;
+
+    var PRODUCT_PER_PAGE = 6;
+	var offset = (page - 1) * PRODUCT_PER_PAGE;
 	var namecat = req.params.namecat;
 	var id;
 	// if(namecat === 'dien-thoai') id = 1;
@@ -37,14 +74,34 @@ router.get('/:namecat', (req, res) => {
 		if(cats.length>0){
 			id = cats[0].idLoaiSanPham;
 
-			var p1 = sanphamRepo.load_sp_theoloai(id);
+			var p1 = sanphamRepo.load_theoloai_limit(id, PRODUCT_PER_PAGE, offset);
 			var p2 = nhasanxuatRepo.loadAll_in_cat_product(id);
+			var p3 = sanphamRepo.count_loai(id);
 
-			Promise.all([p1,p2]).then(([rsp, rnsx]) => {
+			Promise.all([p1,p2,p3]).then(([rsp, rnsx, count]) => {
 			
+				var total = count[0].total;
+				var nPages = total / PRODUCT_PER_PAGE;
+		        if (total % PRODUCT_PER_PAGE > 0) { 
+		            nPages++;
+		        }
+
+		        var numbers = [];
+		        for (i = 1; i <= nPages; i++) {
+		            numbers.push({
+		                value: i,
+		                isCurPage: i === page
+		            });
+		        }
+
 				var vm ={
 					sp: rsp,
-					nsx: rnsx
+					nsx: rnsx,
+					page_numbers: numbers,
+					curPage: page,
+					max_page: nPages,
+					isMaxPage: page === nPages,
+					isMinPage: page === 1,
 				};
 				res.render('shop/shopping', vm)
 			
@@ -56,6 +113,14 @@ router.get('/:namecat', (req, res) => {
 
 router.get('/:ncat/:nnsx', (req, res) => {
 
+	var spage = req.query.page;
+    if (!spage) {
+        spage = 1;
+    }
+    var page = +spage;
+
+    var PRODUCT_PER_PAGE = 6;
+    var offset = (page - 1) * PRODUCT_PER_PAGE;
 	var namecat = req.params.ncat;
 	var namensx = req.params.nnsx;
 
@@ -69,14 +134,34 @@ router.get('/:ncat/:nnsx', (req, res) => {
 			var idloai = rloai[0].idLoaiSanPham;
 			var idnsx = rnsx[0].idNhaSanXuat;
 
-			var p3 = sanphamRepo.load_sp_theoloai_nsx(idloai, idnsx);
+			var p3 = sanphamRepo.load_theoloainsx_limit(idloai, idnsx, PRODUCT_PER_PAGE, offset);
 			var p4 = nhasanxuatRepo.loadAll_in_cat_nsx_product(idloai, idnsx);
+			var p5 = sanphamRepo.count_loainsx(idloai, idnsx);
 
-			Promise.all([p3,p4]).then(([rsp, rnsx]) => {
+			Promise.all([p3,p4, p5]).then(([rsp, rnsx, count]) => {
 			
+				var total = count[0].total;
+				var nPages = total / PRODUCT_PER_PAGE;
+		        if (total % PRODUCT_PER_PAGE > 0) { 
+		            nPages++;
+		        }
+
+		        var numbers = [];
+		        for (i = 1; i <= nPages; i++) {
+		            numbers.push({
+		                value: i,
+		                isCurPage: i === +page
+		            });
+		        }
+
 				var vm ={
 					sp: rsp,
-					nsx: rnsx
+					nsx: rnsx,
+					page_numbers: numbers,
+					curPage: page,
+					max_page: nPages,
+					isMaxPage: page === nPages,
+					isMinPage: page === 1,
 				};
 				res.render('shop/shopping', vm)
 			

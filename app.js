@@ -28,11 +28,17 @@ app.engine('hbs', exphbs({
         section: express_handlebars_sections(),
         number_format: n => {
             var nf = wnumb({
-                thousand: ',',
-                suffix: ' đ'
+                thousand: ' ',
+                suffix: 'đ'
             });
             return nf.to(n);
-        }
+        },
+        minus_1_interger: n =>{
+            return n-1;
+        },
+        plus_1_interger: n => {
+            return n+1;
+        },
     } 
 }));
 app.set('view engine', 'hbs');

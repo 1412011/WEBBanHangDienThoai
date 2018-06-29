@@ -1,42 +1,42 @@
 
 $('document').ready(function(){ 
 
-  $('a.add_to_cart').on('click',function(){
+  // $('a.add_to_cart').on('click',function(){
 
-    var item_name = 'IPhone X 256 GB';
-    var item_img = 'images/imgs/ip-x-w-0.png';
-    var item_price = '34 790 000 đ';
-    var item_quantity = 1;
-    var li_item = `
-                    <li class="item">
-                      <a href="#" class="product-media"><img src="images/imgs/oppo-f5-0.png" alt="img"></a>
-                      <div class="product-info">
-                          <div class="price">
-                              <label class="unit-price">10 000 000đ</label>
-                              <label class="lable-mulx-minicart" style="color: #000;">x</label>                            
-                              <a href="javascript:;" class="sign minus"><i class="fa fa-minus"></i></a>
-                              <label class="quantity-mini-cart">1</label>                       
-                              <a href="javascript:;" class="sign plus"><i class="fa fa-plus"></i></a>
-                          </div>
-                          <div class="product-name"><a href="#">OPPO F7 128 GB</a></div>
-                      </div>
-                      <a href="javascript:;" class="remove-li">x</a>
-                    </li>  
-                  `;
-    $('ul.items').append(li_item); 
-    var count = parseInt($('span.count:first').text());
-    ++count;
-    $('span.count').text(count);
+  //   var item_name = 'IPhone X 256 GB';
+  //   var item_img = 'images/imgs/ip-x-w-0.png';
+  //   var item_price = '34 790 000 đ';
+  //   var item_quantity = 1;
+  //   var li_item = `
+  //                   <li class="item">
+  //                     <a href="#" class="product-media"><img src="images/imgs/oppo-f5-0.png" alt="img"></a>
+  //                     <div class="product-info">
+  //                         <div class="price">
+  //                             <label class="unit-price">10 000 000đ</label>
+  //                             <label class="lable-mulx-minicart" style="color: #000;">x</label>                            
+  //                             <a href="javascript:;" class="sign minus"><i class="fa fa-minus"></i></a>
+  //                             <label class="quantity-mini-cart">1</label>                       
+  //                             <a href="javascript:;" class="sign plus"><i class="fa fa-plus"></i></a>
+  //                         </div>
+  //                         <div class="product-name"><a href="#">OPPO F7 128 GB</a></div>
+  //                     </div>
+  //                     <a href="javascript:;" class="remove-li">x</a>
+  //                   </li>  
+  //                 `;
+  //   $('ul.items').append(li_item); 
+  //   var count = parseInt($('span.count:first').text());
+  //   ++count;
+  //   $('span.count').text(count);
 
-    var total = getMoney($('.subtotal span:first').text());
+  //   var total = getMoney($('.subtotal span:first').text());
 
-    total = total + 10000000;
+  //   total = total + 10000000;
 
-    var fm_total = formatMoney(total);
-    $('.subtotal span').text(fm_total);
-    $('.header-mini-cart span.total').text(fm_total);
+  //   var fm_total = formatMoney(total);
+  //   $('.subtotal span').text(fm_total);
+  //   $('.header-mini-cart span.total').text(fm_total);
 
-  });
+  // });
 
   // remove product cart 
   $('ul.items').on('click','.remove-li',function(){
@@ -228,6 +228,7 @@ $('document').ready(function(){
               $('.box-items-right .login-register').remove();
               $('#close-modal-register').click();
               swal("Đăng ký tài khoản thành công", "Bạn đã đăng nhập", "success");
+              location.reload();
             },
             error: function(e){
                 console.log('ERROR: ' + e);
@@ -267,7 +268,7 @@ $('document').ready(function(){
                         $('.box-items-right').append(div);
                         $('.box-items-right .login-register').remove();
                         $('#close-modal-login').click();
-                        swal("Đăng nhập tài khoản thành công", "Bạn đã đăng nhập", "success");
+                        location.reload();
                       }else{
                               $('#error-login').text('Tài khoản hoặc mật khẩu không chính xác.');
                               $('#error-login').removeClass('hide-div');
@@ -298,7 +299,7 @@ $('document').ready(function(){
                     `;
                     $('.box-items-right').append(div);
                     $('.box-items-right .dropdown').remove();
-                    swal("Bạn đã đăng xuất", "Đăng nhập để lưu lịch sử mua hàng", "success");
+                    location.reload();
                   },
                   error: function(e){
                       console.log('ERROR: ' + e);
@@ -307,7 +308,8 @@ $('document').ready(function(){
               }); 
     });
 
-    $('a.quick-view').on('click', function(){
+    $('a.quick-view').on('click', function(e){
+        e.preventDefault();
         var id = +$(this).data('id');
         var user = {
           id: id
@@ -337,6 +339,114 @@ $('document').ready(function(){
 
               }); 
     });
+
+    $('.add-to-cart-detail').on('click', function(e){
+          var sp = {
+            idSanPham: +$(this).data('id'),
+            soluong: +$('#quantity-buy').val()
+          }
+
+          $.ajax({
+                  type: 'POST',
+                  url: '/cart/add',
+                  contentType : "application/json",
+                  dataType : 'json',
+                  data: JSON.stringify(sp),
+                  success: function(result){
+
+                    addtominicart(result);
+                  },
+                  error: function(e){
+                      console.log('ERROR: ' + e);
+                      swal('LỖI: ' + e);
+                  }
+
+              }); 
+    });
+    $('.add-mini-cart').on('click', function(e){
+          var sp = {
+            idSanPham: +$(this).data('id'),
+            soluong: 1
+          };
+          $.ajax({
+                  type: 'POST',
+                  url: '/cart/add',
+                  contentType : "application/json",
+                  dataType : 'json',
+                  data: JSON.stringify(sp),
+                  success: function(result){
+                    addtominicart(result);
+                  },
+                  error: function(e){
+                      console.log('ERROR: ' + e);
+                      swal('LỖI: ' + e);
+                  }
+
+              }); 
+    });
+    function addtominicart(result){
+      console.log(result);
+      if(result.isResult > 0)
+      {
+        swal("Thêm sản phẩm thành công : id=" +result.sp.idSanPham);
+        var fm_money = formatMoney(result.sp.gia);
+        var li_item = `
+                    <li class="item">
+                      <a href="#" class="product-media"><img src="${result.sp.duongDan}" alt="img"></a>
+                      <div class="product-info">
+                          <div class="price">
+                              <label class="unit-price">${fm_money}</label>
+                              <label class="lable-mulx-minicart" style="color: #000;">x</label>                            
+                              <a href="javascript:;" class="sign minus"><i class="fa fa-minus"></i></a>
+                              <label class="quantity-mini-cart">${result.soluong}</label>                       
+                              <a href="javascript:;" class="sign plus"><i class="fa fa-plus"></i></a>
+                          </div>
+                          <div class="product-name"><a href="javascript:;">${result.sp.tenSanPham}</a></div>
+                      </div>
+                      <a href="javascript:;" class="remove-li">x</a>
+                    </li>  
+                  `;
+        $('ul.items').append(li_item); 
+        var amount = result.soluong * result.sp.gia;
+        var count = parseInt($('span.count:first').text());
+        ++count;
+        $('span.count').text(count);
+
+        var total = getMoney($('.subtotal span:first').text());
+
+        total = total + amount;
+
+        var fm_total = formatMoney(total);
+        $('.subtotal span').text(fm_total);
+        $('.header-mini-cart span.total').text(fm_total);
+      }
+      else{
+        swal("Thêm sản phẩm thất bại: id="+ result.sp.idSanPham);
+       }
+    }
+
+
+    $('#filter-manuf-button').on('click', function(){
+
+        var listchecked = [];
+        $('.cat-item').each(function (index) {
+            if($(this).find('.input-checkbox-nsx').prop('checked')){
+                listchecked.push( $(this).data('id') );
+            }
+        });
+
+        if(listchecked.length === 0)return;
+
+        var subUrl ='';
+        for(var i = 0 ;i<listchecked.length ;i++)
+        {
+          subUrl += listchecked[i].toString() +',';
+        } 
+        subUrl = subUrl.substr(0,subUrl.length-1);
+        window.location.href = window.location.pathname + '?array='+subUrl;
+    });
+
+
 
     $('#list-address-profile').on('click', '.remove-address' ,function(){
       $(this).closest('tr').remove();

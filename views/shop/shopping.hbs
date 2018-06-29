@@ -72,7 +72,7 @@
                                         <a href="#"><i class="fa fa-star-o"></i></a>
                                         <span>(0)</span>
                                     </div>
-                                    <h3 class="product-name"><a href="#">{{tenSanPham}}</a></h3>
+                                    <h3 class="product-name"><a href="/product/product-detail?id={{idSanPham}}">{{tenSanPham}}</a></h3>
                                 </div>
                                 <div class="product-media">
                                     <figure>
@@ -100,17 +100,33 @@
                         
                     </div>
                     <div class="pagination">
-                        <a href="#">&laquo;</a>
-                        <a href="#">&lsaquo;</a>
-                        <a href="#">1</a>
-                        <a href="#" class="active">2</a>
-                        <a href="#">3</a>
-                        <a href="#">4</a>
-                        <a href="#">5</a>
-                        <a href="#">6</a>
-                        <a href="javascript:;" class="three-dots"> ... </a>
-                        <a href="#">&rsaquo;</a>
-                        <a href="#">&raquo;</a>
+
+                        {{#if isMinPage}} 
+                            <a class="disable-page" href="?page=1">&laquo;</a>
+                            <a class="disable-page" href="?page={{minus_1_interger curPage}}">&lsaquo;</a>
+                        {{else}}
+                            <a href="?page=1">&laquo;</a>
+                            <a href="?page={{minus_1_interger curPage}}">&lsaquo;</a>              
+                        {{/if}}
+
+                        {{#each page_numbers}}
+                            {{#if isCurPage}}
+                                <a href="?page={{value}}" class="active">{{value}}</a>
+                            {{else}}
+                                <a href="?page={{value}}">{{value}}</a>
+                            {{/if}}
+                        {{/each}}
+
+                        <!--<a href="javascript:;" class="three-dots"> ... </a>--> 
+
+                        {{#if isMaxPage}}
+                            <a class="disable-page" href="?page={{plus_1_interger curPage}}">&rsaquo;</a>
+                            <a class="disable-page" href="?page={{max_page}}">&raquo;</a>
+                        {{else}}
+                            <a href="?page={{plus_1_interger curPage}}">&rsaquo;</a>
+                            <a href="?page={{max_page}}">&raquo;</a>
+                        {{/if}}
+
                     </div>
                     <!-- </nav> -->
                 </div>
@@ -120,16 +136,16 @@
             <div id="secondary" class="sidebar col-sm-4 col-md-4 col-lg-3">
             
                 <!-- Widget Price -->
-                <div class="widget widget-price margin-bottom-50">
+                <div class="widget widget-price margin-bottom-80">
                     <h4 class="title-widget">Giá</h4>
                     <div class="price-slider-wrapper">
                         <div class="price-slider-amount">
                             <div style="" class="price-label">
-                                <span class="from">đ1</span> - <span class="to">đ100000</span>
+                                <span class="from">đ 100000</span> - <span class="to">đ 50000000</span>
                             </div>
                         </div>
-                        <div data-label-reasult="" data-min="1" data-max="100000" data-unit="đ" class="slider-range-price " data-value-min="0" data-value-max="100000"></div>
-                        <a href="#" class="button-price-slider">Lọc</a>
+                        <div data-label-reasult="" data-min="100000" data-max="50000000" data-unit="đ " class="slider-range-price " data-value-min="0" data-value-max="50000000"></div>
+                        <button type="button" id="filter-price-button" class="btn btn-primary button-price-slider">LỌC GIÁ</button>
                     </div>
                 </div>
                 <!-- End Widget Price -->
@@ -138,16 +154,19 @@
                     <h4 class="title-widget">Nhà sản xuất</h4>
                     <ul class="list-widget-items">
                         {{#each nsx}}
-                        <li class="cat-item">
-                            <label class="inline"><input type="checkbox"><span class="input"></span>{{tenNhaSanXuat}}</label>
+                        <li class="cat-item" data-id={{idNhaSanXuat}}>
+                            <label class="inline">
+                                <input type="checkbox" class="input-checkbox-nsx" ><span class="input"></span>{{tenNhaSanXuat}}
+                            </label>
                         </li>
                         {{/each}}
                         <!-- <a href="#" class="show-more">+ hiển thị thêm</a> -->
+                        <button type="button" id="filter-manuf-button" class="btn btn-primary button-price-slider">LỌC NSX</button>
                     </ul>
                 </div>
                 <!-- End Widget Brand -->
             </div>
-            <!--End Sidebar content -->
+            <!--End Sidebar content --> 
         </div>
     </div>
     <div class="container">

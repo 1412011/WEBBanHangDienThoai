@@ -253,7 +253,7 @@
         </div> <!-- end modal register -->
 
         <div class="header-nav">
-            <div class="vertical-menu">
+            <div class="vertical-menu"> 
                 <div class="block-title">
                     <i class="fa fa-bars"></i>
                     <span class="text">Tất cả danh mục</span>
@@ -280,45 +280,52 @@
                     <a href="/shop/tat-ca-san-pham" class="button-search">TÌM KIẾM</a>
                 </form>
             </div>
+
             <div class="header-control">
                 <div class="header-cart">
+                    {{#if layoutVM.isLogged}}
                     <div class="header-mini-cart">
                         <a href="#">
                             <span class="icon icon_bag_alt"></span>
-                            <span class="count">0</span>
-                            <span class="total">25 000 000 đ</span>
+                            <span class="count">{{layoutVM.count}}</span>
+                            <span class="total">{{number_format layoutVM.total}}</span>
                         </a>
                         <div class="mini-cart-content">
-                            <div class="hide-div">
+                            {{#if layoutVM.isNumCart}}
                                 <ul class="items">
+                                    {{#each layoutVM.items}}
                                     <li class="item">
-                                        <a href="#" class="product-media"><img src="/images/imgs/ip-5-16GB-0.jpg" alt="img"></a>
+                                        <a href="#" class="product-media"><img src="{{sp.duongDan}}" alt="img"></a>
                                         <div class="product-info">
                                             <div class="price">
-                                                <label class="unit-price">5 000 000đ</label>
+                                                <label class="unit-price">{{number_format sp.gia}}</label>
                                                 <label class="lable-mulx-minicart" style="color: #000;">x</label>                            
                                                 <a href="javascript:;" class="sign minus"><i class="fa fa-minus"></i></a>
-                                                <label class="quantity-mini-cart">1</label>                       
+                                                <label class="quantity-mini-cart">{{soluong}}</label>                       
                                                 <a href="javascript:;" class="sign plus"><i class="fa fa-plus"></i></a>
                                             </div>
-                                            <div class="product-name"><a href="#">Iphone 5s 32GB</a></div>
+                                            <div class="product-name"><a href="#">{{sp.tenSanPham}}</a></div>
                                         </div>
                                         <a href="javascript:;" class="remove-li">x</a>
-                                    </li>  
+                                    </li> 
+                                    {{/each}}
                                 </ul>
-                                <div class="subtotal">Tổng<span>25 000 000đ</span></div>
+                                <div class="subtotal">Tổng<span>{{number_format layoutVM.total}}</span></div> 
                                 <div class="actions">
-                                    <a href="shopping-cart.html" class="btn-process">XEM GIỎ HÀNG</a>
-                                    <a href="checkout.html" class="btn-process btn-checkout">THANH TOÁN</a>
+                                    <a href="/cart" class="btn-process">XEM GIỎ HÀNG</a>
+                                    <a href="/cart/checkout" class="btn-process btn-checkout">THANH TOÁN</a>
                                 </div>
-                            </div>
+                            {{else}}
                             <div class="empty-cart">
                                 Giỏ hàng hiện không có sản phẩm. Hãy mua sắm sản phẩm yêu thích của bạn.
                             </div>
+                            {{/if}}
                         </div> <!-- end mini cart -->
                     </div>
+                    {{/if}}
                 </div>
             </div>
+            
         </div>
     </div>
 </header>
