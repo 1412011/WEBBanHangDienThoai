@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link rel="icon" href="/images/admin-imgs/icon.ico">
+	<title>{{{_sections.title}}}</title>
+	<link rel="stylesheet" type="text/css" href="/admin/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/admin/assets/css/css.css">
+	<style type="text/css">
+		.loginFacebook {
+			margin-top: 30px;
+			text-decoration: none; 
+			color: #fff; 
+			border-radius: 2px; 
+			padding: 10px 90px; 
+			font-size: 18px; 
+			background: url(/images/admin-imgs/ic-fb.png) 10px bottom no-repeat #3563ba;
+		}
+
+		.loginGoogle {
+			text-decoration: none; 
+			color: #fff; 
+			border-radius: 2px; 
+			padding: 10px 98px; 
+			font-size: 18px; 
+			background: url(/images/admin-imgs/ic-gg.png) 10px no-repeat #ba1a1a;
+		}
+
+ 		.loginFacebook:hover {
+ 			color: #fff;
+ 			text-decoration: none;
+ 			background-color: #3059A7;
+ 		}
+
+ 		.loginGoogle:hover {
+ 			color: #fff;
+ 			text-decoration: none;
+ 			background-color: #A71717;
+ 		}
+	</style>
+	<script src='https://www.google.com/recaptcha/api.js'></script>
+</head>
+<body style="background: url(/images/admin-imgs/bg1.jpg")">
+	<div class="container-fluid" style="padding: 0 30px; color: #fff; width: 1140px;">
+		<div class="row" style="margin: 20px;"><a href="/home/index" style="color: #fff; text-decoration: none;"><img style="width: 100px; height: 30px;" src="/images/admin-imgs/logo.png"><span style="height: 40px; line-height: 40px; padding-left: 10px; font-size: 20px;">smartstore.com</span></a></div>
+		<div style="padding: 15px 30px; background-color: rgba(255,255,255,0.1); border-radius: 10px;">
+			
+			{{{body}}}
+		</div>
+	</div>
+	<div class="footer">
+		<div class="row">
+			<div class="col-md-2"></div>
+			<div class="col-md-10">Copyleft <span style="display:inline-block; transform: rotate(180deg);">&copy;</span> 2017-2018 Nguyen Thanh Hau &amp; Nguyen Hoang Anh | Phát triển ứng dụng web@student.hcmus.edu.vn</div>
+		</div>
+	</div>
+	
+	<script type="text/javascript" src="/admin/dist/jquery/jquery.slim.min.js"></script>
+	<script type="text/javascript" src="/admin/dist/popper/popper.js"></script>
+	<script type="text/javascript" src="/admin/dist/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/admin/assets/js/js.js"></script>
+	
+</body>
+</html>

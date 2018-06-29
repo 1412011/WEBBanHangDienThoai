@@ -1,0 +1,93 @@
+{{#section 'title'}}
+    Quản lý đơn hàng
+{{/section}}
+<div class="list-group TuyChon" style="padding-top: 20px;">
+					  <a href="/admin/Dashboard" class="list-group-item list-group-item-action"><img src="/images/admin-imgs/icon-dashboard.png"> Dashboard</a>
+					  <a href="/admin/admin-QuanLySanPham" class="list-group-item list-group-item-action"><img src="/images/admin-imgs/icon-product.png"> Quản lý sản phẩm</a>
+					  <a href="/admin/admin-QuanLyNSX" class="list-group-item list-group-item-action"><img src="/images/admin-imgs/icon-NSX.png"> Quản lý NSX</a>
+					  <a href="/admin/admin-QuanLyDonHang" class="list-group-item list-group-item-action active"><img src="/images/admin-imgs/icon-check.png"> Quản lý đơn hàng</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-9">
+				<div style="background-color: rgba(255,255,255,0.1); border-radius: 5px; padding: 50px; height: 534px;">
+					<h2>QUẢN LÝ ĐƠN HÀNG</h2>
+					<table id="QLDonHang" class="table" style="margin-top: 40px;">
+					  <thead>
+					    <tr>
+					      <th scope="col">#</th>
+					      <th scope="col">MÃ</th>
+					      <th scope="col">NGÀY MUA</th>
+					      <th scope="col">SẢN PHẨM</th>
+					      <th scope="col">TỔNG TIỀN</th>
+					      <th scope="col"></th>
+					      <th scope="col"></th>
+					    </tr>
+					  </thead>
+					  <tbody>
+					    <tr class="alert alert-warning">
+					      <th scope="row">1</th>
+					      <td>#5642</td>
+					      <td>30/04/2018</td>
+					      <td>iPhone X</td>
+					      <td>34.790.000 VNĐ</td>
+					      <td><a href="" data-toggle="modal" data-target="#ChucNangChuaSS">xem chi tiết</a></td>
+					      <td><img class="ChinhSuaTrangThai" style="cursor: pointer;" src="/images/admin-imgs/icon-changestatus.png" data-toggle="modal" data-target="#modalTrangThai"></td>
+					    </tr>
+					    <tr class="alert alert-danger">
+					      <th scope="row">2</th>
+					      <td>#4340</td>
+					      <td>25/01/2018</td>
+					      <td>+ iPad Pro<br>+ Samsung Glaxy Note 7<br>+ Sony Xperia XZ1</td>
+					      <td>74.999.000 VNĐ</td>
+					      <td><a href="" data-toggle="modal" data-target="#ChucNangChuaSS">xem chi tiết</a></td>
+					      <td><img class="ChinhSuaTrangThai" style="cursor: pointer;" src="/images/admin-imgs/icon-changestatus.png" data-toggle="modal" data-target="#modalTrangThai"></td>
+					    </tr>
+					    <tr class="alert alert-success">
+					      <th scope="row">3</th>
+					      <td>#3005</td>
+					      <td>25/12/2017</td>
+					      <td>iPhone 6s</td>
+					      <td>6.990.000 VNĐ</td>
+					      <td><a href="" data-toggle="modal" data-target="#ChucNangChuaSS">xem chi tiết</a></td>
+					      <td><img class="ChinhSuaTrangThai" style="cursor: pointer;" src="/images/admin-imgs/icon-changestatus.png" data-toggle="modal" data-target="#modalTrangThai"></td>
+					    </tr>
+					    <tr class="alert alert-danger">
+					      <th scope="row">4</th>
+					      <td>#342</td>
+					      <td>02/09/2017</td>
+					      <td>HTC One A9S</td>
+					      <td>3.790.000 VNĐ</td>
+					      <td><a href="" data-toggle="modal" data-target="#ChucNangChuaSS">xem chi tiết</a></td>
+					      <td><img class="ChinhSuaTrangThai" style="cursor: pointer;" src="/images/admin-imgs/icon-changestatus.png" data-toggle="modal" data-target="#modalTrangThai"></td>
+					    </tr>
+					  </tbody>
+					</table>
+					<div class="row"  style="float: left; padding-left: 15px; padding-top: 20px">
+						<div style="width: 25px; height: 25px; background-color: #28a745;; margin-right: 10px"></div><div style="margin-right: 30px;">Đã giao</div>
+						<div style="width: 25px; height: 25px; background-color: #dc3545; margin-right: 10px"></div><div style="margin-right: 30px;">Chưa giao</div>
+						<div style="width: 25px; height: 25px; background-color: #ffc107; margin-right: 10px"></div><div style="margin-right: 30px;">Đang giao</div>
+					</div>
+					<div class="row"  style="float: right; padding-right: 15px; padding-top: 20px">
+					<nav aria-label="Page navigation example">
+					  <ul class="pagination">
+					    <li class="page-item disabled">
+					      <a class="page-link" href="#" aria-label="Previous">
+					        <span aria-hidden="true">&laquo;</span>
+					        <span class="sr-only">Previous</span>
+					      </a>
+					    </li>
+					    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+					    <li class="page-item"><a class="page-link" href="#">2</a></li>
+					    <li class="page-item"><a class="page-link" href="#">3</a></li>
+					    <li class="page-item"><a class="page-link" href="#">4</a></li>
+					    <li class="page-item"><a class="page-link" href="#">5</a></li>
+					    <li class="page-item">
+					      <a class="page-link" href="#" aria-label="Next">
+					        <span aria-hidden="true">&raquo;</span>
+					        <span class="sr-only">Next</span>
+					      </a>
+					    </li>
+					  </ul>
+					</nav>
+				
